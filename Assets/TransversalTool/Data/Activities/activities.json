@@ -8,17 +8,17 @@
       "moduleCode": "0485",
       "learningOutcomeId": "RA1",
       "studentTemplatePaths": [
-        "Assets/TransversalTool/Templates/Student/Programming/MovementTemplate.cs"
+        "Assets/TransversalTool/Templates/Student/Programming/TransversalPlayerMovementTemplate.cs"
       ],
       "teacherSolutionPaths": [
-        "Assets/TransversalTool/Templates/Teacher/Programming/MovementSolution.cs"
+        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalPlayerMovementSolution.cs"
       ],
       "statementPaths": [
         "Assets/TransversalTool/Documentation/Statements/Programming_RA1.md"
       ],
       "resourcePaths": [],
       "targetPaths": [
-        "Assets/TransversalExercises/Programming/PlayerMovement.cs"
+        "Assets/TransversalExercises/Programming/TransversalPlayerMovement.cs"
       ]
     },
     {

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace TransversalExercises.Programming
 {
-    public class PlayerMovement : MonoBehaviour
+    public class TransversalPlayerMovementTemplate : MonoBehaviour
     {
         [SerializeField] float speed = 5f;
 
