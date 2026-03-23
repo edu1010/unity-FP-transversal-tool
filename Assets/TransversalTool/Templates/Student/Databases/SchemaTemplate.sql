@@ -1,0 +1,2 @@
+-- TODO: Define the initial schema based on the statement.
+-- Example: CREATE TABLE player (...);

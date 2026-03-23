@@ -1,0 +1,10 @@
+CREATE TABLE player (
+  id INTEGER PRIMARY KEY,
+  name TEXT NOT NULL,
+  score INTEGER DEFAULT 0
+);
+
+CREATE TABLE level (
+  id INTEGER PRIMARY KEY,
+  name TEXT NOT NULL
+);

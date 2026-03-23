@@ -1,0 +1,67 @@
+{
+  "activities": [
+    {
+      "id": "PROG_RA1_ACT1",
+      "title": "Moviment bàsic del personatge",
+      "type": "CSharpScript",
+      "deliverableType": "CSharpScript",
+      "moduleCode": "0485",
+      "learningOutcomeId": "RA1",
+      "studentTemplatePaths": [
+        "Assets/TransversalTool/Templates/Student/Programming/MovementTemplate.cs"
+      ],
+      "teacherSolutionPaths": [
+        "Assets/TransversalTool/Templates/Teacher/Programming/MovementSolution.cs"
+      ],
+      "statementPaths": [
+        "Assets/TransversalTool/Documentation/Statements/Programming_RA1.md"
+      ],
+      "resourcePaths": [],
+      "targetPaths": [
+        "Assets/TransversalExercises/Programming/PlayerMovement.cs"
+      ]
+    },
+    {
+      "id": "BDD_RA2_ACT1",
+      "title": "Model relacional inicial",
+      "type": "SQL",
+      "deliverableType": "SQLite",
+      "moduleCode": "0484",
+      "learningOutcomeId": "RA2",
+      "studentTemplatePaths": [
+        "Assets/TransversalTool/Templates/Student/Databases/SchemaTemplate.sql"
+      ],
+      "teacherSolutionPaths": [
+        "Assets/TransversalTool/Templates/Teacher/Databases/SchemaSolution.sql"
+      ],
+      "statementPaths": [
+        "Assets/TransversalTool/Documentation/Statements/Databases_RA2.md"
+      ],
+      "resourcePaths": [],
+      "targetPaths": [
+        "Assets/TransversalExercises/Databases/schema.sql"
+      ]
+    },
+    {
+      "id": "LM_RA1_ACT1",
+      "title": "Fitxer JSON de configuració",
+      "type": "JSON",
+      "deliverableType": "JSON",
+      "moduleCode": "0373",
+      "learningOutcomeId": "RA1",
+      "studentTemplatePaths": [
+        "Assets/TransversalTool/Templates/Student/Markup/ConfigTemplate.json"
+      ],
+      "teacherSolutionPaths": [
+        "Assets/TransversalTool/Templates/Teacher/Markup/ConfigSolution.json"
+      ],
+      "statementPaths": [
+        "Assets/TransversalTool/Documentation/Statements/Markup_RA1.md"
+      ],
+      "resourcePaths": [],
+      "targetPaths": [
+        "Assets/TransversalExercises/Markup/config.json"
+      ]
+    }
+  ]
+}

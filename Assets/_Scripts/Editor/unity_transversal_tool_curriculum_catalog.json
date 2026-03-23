@@ -1,0 +1,390 @@
+{
+  "cycles": {
+    "DAM": {
+      "name": "Desenvolupament d’aplicacions multiplataforma",
+      "modules": [
+        {
+          "code": "0373",
+          "name": "Llenguatges de marques i sistemes de gestió d’informació",
+          "ras": [
+            "Reconeix les característiques de llenguatges de marques analitzant i interpretant fragments de codi.",
+            "Utilitza llenguatges de marques per a la transmissió i presentació de informació a través del web analitzant l'estructura dels documents i identificant-ne els elements.",
+            "Accedeix i manipula documents web utilitzant llenguatges de guions de client.",
+            "Estableix mecanismes de validació de documents per a l'intercanvi d'informació utilitzant mètodes per definir-ne la sintaxi i l'estructura.",
+            "Realitza conversions sobre documents per a l'intercanvi de informació utilitzant tècniques, llenguatges i eines de processament.",
+            "Gestiona la informació en formats d'intercanvi de dades analitzant i utilitzant tecnologies d'emmagatzematge i llenguatges de consulta.",
+            "Efectua operacions amb sistemes empresarials de gestió d'informació realitzant tasques d'importació, integració, assegurament i extracció de la informació."
+          ]
+        },
+        {
+          "code": "0483",
+          "name": "Sistemes informàtics",
+          "ras": [
+            "Avalua sistemes informàtics, identificant els seus components i característiques",
+            "Instal·la sistemes operatius planificant el procés i interpretant documentació tècnica.",
+            "Gestiona la informació del sistema identificant les estructures d'emmagatzematge i aplicant mesures per assegurar la integritat de les dades.",
+            "Gestiona sistemes operatius utilitzant comandes i eines gràfiques i avaluant les necessitats del sistema.",
+            "Interconnecta sistemes en xarxa configurant dispositius i protocols.",
+            "Treballa amb sistemes en xarxa gestionant-ne els recursos i identificant les restriccions de seguretat existents.",
+            "Elabora documentació valorant i utilitzant aplicacions informàtiques de propòsit general."
+          ]
+        },
+        {
+          "code": "0484",
+          "name": "Bases de dades",
+          "ras": [
+            "Reconeix els elements de les bases de dades analitzant-ne les funcions i valorant la utilitat dels sistemes gestors.",
+            "Crea bases de dades definint-ne l'estructura i les característiques dels elements segons el model relacional.",
+            "Consulta la informació emmagatzemada en una base de dades fent servir assistents, eines gràfiques i el llenguatge de manipulació de dades.",
+            "Modifica la informació emmagatzemada a la base de dades utilitzant assistents, eines gràfiques i el llenguatge de manipulació de dades.",
+            "Desenvolupa procediments emmagatzemats avaluant i utilitzant les sentències del llenguatge incorporat al sistema gestor de bases de dades.",
+            "Dissenya models relacionals normalitzats interpretant diagrames entitat/relació.",
+            "Gestiona la informació emmagatzemada en bases de dades no relacionals, avaluant i utilitzant les possibilitats que proporciona el sistema gestor."
+          ]
+        },
+        {
+          "code": "0485",
+          "name": "Programació",
+          "ras": [
+            "Reconeix l'estructura d'un programa informàtic, identificant i relacionant els elements propis del llenguatge de programació utilitzat.",
+            "Escriu i prova programes senzills, reconeixent i aplicant els fonaments de la programació orientada a objectes.",
+            "Escriu i depura codi, analitzant i utilitzant les estructures de control del llenguatge.",
+            "Desenvolupa programes organitzats en classes analitzant i aplicant els principis de la programació orientada a objectes.",
+            "Realitza operacions d'entrada i sortida d'informació, utilitzant procediments específics del llenguatge i llibreries de classes.",
+            "Escriu programes que manipulin informació seleccionant i utilitzant tipus avançats de dades.",
+            "Desenvolupa programes aplicant característiques avançades dels llenguatges orientats a objectes i de l'entorn de programació.",
+            "Utilitza bases de dades orientades a objectes, analitzant-ne les característiques i aplicant tècniques per mantenir la persistència de la informació.",
+            "Gestiona informació emmagatzemada en bases de dades mantenint la integritat i consistència de les dades."
+          ]
+        },
+        {
+          "code": "0486",
+          "name": "Accés a dades",
+          "ras": [
+            "Desenvolupa aplicacions que gestionen informació emmagatzemada en fitxers identificant-ne el camp d'aplicació i utilitzant classes específiques.",
+            "Desenvolupa aplicacions que gestionen informació emmagatzemada en bases de dades relacionals identificant i utilitzant mecanismes de connexió.",
+            "Gestiona la persistència de les dades identificant eines de mapatge objecte relacional (ORM) i desenvolupant aplicacions que les utilitzen.",
+            "Desenvolupa aplicacions que gestionen la informació emmagatzemada en bases de dades objecte relacionals i orientades a objectes valorant-ne les característiques i utilitzant els mecanismes d'accés incorporats.",
+            "Desenvolupa aplicacions que gestionen la informació emmagatzemada en bases de dades documentals natives avaluant i utilitzant classes específiques.",
+            "Programa components d'accés a dades identificant les característiques que ha de posseir un component i utilitzant eines de desenvolupament."
+          ]
+        },
+        {
+          "code": "0487",
+          "name": "Entorns de desenvolupament",
+          "ras": [
+            "Reconeix els elements i les eines que intervenen en el desenvolupament d'un programa informàtic, analitzant-ne les característiques i les fases en què actuen fins a arribar a la posada en funcionament.",
+            "Avalua entorns integrats de desenvolupament analitzant-ne les característiques per editar codi font i generar executables.",
+            "Verifica el funcionament de programes dissenyant i realitzant proves.",
+            "Optimitza codi utilitzant les eines disponibles a l'entorn de desenvolupament.",
+            "Genera diagrames de classes valorant-ne la importància en el desenvolupament d'aplicacions i emprant eines específiques.",
+            "Genera diagrames de comportament valorant-ne la importància en el desenvolupament d'aplicacions i emprant eines específiques."
+          ]
+        },
+        {
+          "code": "0488",
+          "name": "Desenvolupament d’interfícies.",
+          "ras": [
+            "Genera interfícies gràfiques d'usuari mitjançant editors visuals utilitzant les funcionalitats de l'editor i adaptant el codi generat.",
+            "Genera interfícies naturals d'usuari utilitzant eines visuals.",
+            "Crea components visuals valorant i emprant eines específiques.",
+            "Dissenya interfícies gràfiques identificant i aplicant criteris d'usabilitat i accessibilitat.",
+            "Crea informes avaluant i utilitzant eines gràfiques.",
+            "Documenta aplicacions seleccionant i utilitzant eines específiques.",
+            "Prepara aplicacions per a la distribució avaluant i utilitzant eines específiques.",
+            "Avalua el funcionament d'aplicacions dissenyant i executant proves."
+          ]
+        },
+        {
+          "code": "0489",
+          "name": "Programació multimèdia i dispositius mòbils",
+          "ras": [
+            "Aplica tecnologies de desenvolupament per a dispositius mòbils avaluant-ne les característiques i capacitats.",
+            "Desenvolupa aplicacions per a dispositius mòbils analitzant i emprant les tecnologies i llibreries específiques.",
+            "Desenvolupa programes que integren continguts multimèdia analitzant i emprant les tecnologies i llibreries específiques.",
+            "Selecciona i prova motors de jocs analitzant l'arquitectura de jocs 2D i 3D.",
+            "Desenvolupa jocs 2D i 3D senzills utilitzant motors de jocs."
+          ]
+        },
+        {
+          "code": "0490",
+          "name": "Programació de serveis i processos",
+          "ras": [
+            "Desenvolupa aplicacions compostes per diversos processos reconeixent i aplicant principis de programació paral·lela.",
+            "Desenvolupa aplicacions compostes per diversos fils d'execució analitzant i aplicant llibreries específiques del llenguatge de programació.",
+            "Programa mecanismes de comunicació en xarxa emprant sockets i analitzant l'escenari d'execució.",
+            "Desenvolupa aplicacions que ofereixen serveis en xarxa, utilitzant llibreries de classes i aplicant criteris d'eficiència i disponibilitat.",
+            "Protegeix les aplicacions i les dades definint i aplicant criteris de seguretat en l'accés, l'emmagatzematge i la transmissió de la informació."
+          ]
+        },
+        {
+          "code": "0491",
+          "name": "Sistemes de gestió empresarial",
+          "ras": [
+            "Identifica sistemes de planificació de recursos empresarials i de gestió de relacions amb clients (ERP-CRM) reconeixent-ne les característiques i verificant la configuració del sistema informàtic.",
+            "Implanta sistemes ERP-CRM interpretant la documentació tècnica i identificant les diferents opcions i mòduls.",
+            "Realitza operacions de gestió, consulta i anàlisi de la informació seguint les especificacions de disseny i utilitzant les eines proporcionades pels sistemes ERP-CRM.",
+            "Adapta sistemes ERP-CRM identificant els requeriments d'un supòsit empresarial i utilitzant les eines proporcionades per aquests.",
+            "Desenvolupa components per a un sistema ERP-CRM analitzant i utilitzant el llenguatge de programació incorporat."
+          ]
+        },
+        {
+          "code": "0179",
+          "name": "Anglès professional",
+          "ras": [
+            "Comprèn informació, d'índole professional, acadèmica i quotidiana, continguda en tota mena de discursos orals, emesos per qualsevol mitjà de comunicació en llengua estàndard, interpretant amb precisió el contingut del missatge.",
+            "Comprèn missatges escrits, de naturalesa professional, acadèmica i quotidiana, de relativa dificultat, analitzant de manera comprensiva el seu contingut.",
+            "Emet missatges orals clars i ben estructurats, analitzant el contingut de la situació i adaptant-se al registre lingüístic de l'interlocutor.",
+            "Redacta documents i informes, propis del sector o de la vida acadèmica i quotidiana, relacionant els recursos lingüístics amb el seu propòsit.",
+            "Aplica actituds i comportaments professionals en situacions de comunicació, descrivint les relacions típiques característiques del país de la llengua estrangera."
+          ]
+        },
+        {
+          "code": "1665",
+          "name": "Digitalització aplicada als sectors productius",
+          "ras": [
+            "Analitza el concepte de digitalització i la seva repercussió en els sectors productius tenint en compte l'activitat de l'empresa i identificant entorns IT (Information Technology: tecnologia de la informació) i OT (Operation Technology: tecnologia d'operació) característics.",
+            "Caracteritza les tecnologies habilitadores digitals necessàries per a l'adequació/transformació de les empreses a entorns digitals descrivint les seves característiques i aplicacions.",
+            "Identifica sistemes basats en cloud/núvol i la seva influència en el desenvolupament dels sistemes digitals.",
+            "Identifica aplicacions de la IA (intel·ligència artificial) en entorns del sector on està emmarcat el títol descrivint les millores implícites en la seva implementació",
+            "Avalua la importància de les dades, així com la seva protecció en una economia digital globalitzada, definint sistemes de seguretat i ciberseguretat tant a nivell d'equip/sistema, com a globals.",
+            "Desenvolupa un projecte de transformació digital d'una empresa d'un sector relacionat amb el títol, tenint en compte els canvis que s'han de produir en funció dels objectius de l'empresa."
+          ]
+        },
+        {
+          "code": "1708",
+          "name": "Sostenibilitat Aplicada al Sistema Productiu",
+          "ras": [
+            "Identifica els aspectes ambientals, socials i de governança (ASG) relatius a la sostenibilitat tenint en compte el concepte de desenvolupament sostenible i els marcs internacionals que contribueixen a la seva consecució.",
+            "Caracteritza els reptes ambientals i socials als quals s'enfronta la societat, descrivint els impactes sobre les persones i els sectors productius i proposant accions per a minimitzar-los.",
+            "Estableix l'aplicació de criteris de sostenibilitat en l'acompliment professional i personal, identificant els elements necessaris.",
+            "Proposa productes i serveis responsables tenint en compte els principis de l’economia circular.",
+            "Realitza activitats sostenibles minimitzant l'impacte de les mateixes en el medi ambient.",
+            "Analitza un pla de sostenibilitat d'una empresa del sector, identificant els seus grups d'interès, els aspectes ASG materials i justificant accions per a la seva gestió i mesurament."
+          ]
+        },
+        {
+          "code": "1709",
+          "name": "Itinerari personal per a l'ocupabilitat I",
+          "ras": [
+            "Distingeix les característiques del sector productiu i defineix els llocs de treball, relacionant-los amb les competències professionals expressades en el títol.",
+            "Assoleix les competències necessàries per a l'obtenció del títol de Tècnic Bàsic en Prevenció de Riscos Laborals.",
+            "Analitza i avalua el seu potencial professional i els seus interessos per a guiar-se en el procés d'autoorientació i elabora un full de ruta per a la inserció professional partint de l'anàlisi de les competències, interessos i destreses personals.",
+            "Aplica les estratègies per a l'aprenentatge autònom reconeixent el seu valor professionalitzador, dissenyant i optimitzant el seu propi entorn d'aprenentatge fent ús de les tecnologies digitals com a eines d'aprenentatge autònom, sent coherent amb la seva identitat digital i els seus objectius professionals plantejats en el seu pla de desenvolupament individual."
+          ]
+        },
+        {
+          "code": "1710",
+          "name": "Itinerari personal per a l'ocupabilitat II",
+          "ras": [
+            "Planifica i posa en marxa estratègies en els diferents processos selectius d'ocupació que li permeten millorar les seves possibilitats d'inserció laboral.",
+            "Aplica estratègies relacionades amb les competències personals, socials i emocionals per al desenvolupament de la seva iniciativa emprenedora i la millora de la seva ocupabilitat.",
+            "Posa en pràctica les habilitats emprenedores necessàries per al desenvolupament de processos d’innovació i recerca aplicades que promouen la modernització del sector productiu cap a un model sostenible.",
+            "Identifica, defineix i valida idees d’emprenedoria generadores de noves oportunitats a partir d’estratègies d’anàlisi de l’entorn socioproductiu utilitzant metodologies àgils per l’emprenedoria.",
+            "Desenvolupa un projecte emprenedor d’innovació social i/o tecnològica aplicada en col·laboració amb l’entorn."
+          ]
+        },
+        {
+          "code": "0492",
+          "name": "Projecte intermodular de desenvolupament d'aplicacions multiplataforma",
+          "ras": [
+            "Identifica necessitats del sector productiu, relacionant-les amb projectes tipus que les puguin satisfer.",
+            "Dissenya projectes relacionats amb les competències expressades al títol, desenvolupant explícitament les fases que el componen.",
+            "Planifica l'execució del projecte, determinant el pla d'intervenció i la documentació associada.",
+            "Defineix els procediments per al seguiment i el control en l'execució del projecte, justificant la selecció de variables i instruments emprats."
+          ]
+        }
+      ]
+    },
+    "DAW": {
+      "name": "Desenvolupament d’aplicacions web",
+      "modules": [
+        {
+          "code": "0373",
+          "name": "Llenguatges de marques i sistemes de gestió d’informació",
+          "ras": [
+            "Reconeix les característiques de llenguatges de marques analitzant i interpretant fragments de codi.",
+            "Utilitza llenguatges de marques per a la transmissió i presentació de informació a través del web analitzant l'estructura dels documents i identificant-ne els elements.",
+            "Accedeix i manipula documents web utilitzant llenguatges de guions de client.",
+            "Estableix mecanismes de validació de documents per a l'intercanvi d'informació utilitzant mètodes per definir-ne la sintaxi i l'estructura.",
+            "Realitza conversions sobre documents per a l'intercanvi de informació utilitzant tècniques, llenguatges i eines de processament.",
+            "Gestiona la informació en formats d'intercanvi de dades analitzant i utilitzant tecnologies d'emmagatzematge i llenguatges de consulta.",
+            "Efectua operacions amb sistemes empresarials de gestió d'informació realitzant tasques d'importació, integració, assegurament i extracció de la informació."
+          ]
+        },
+        {
+          "code": "0483",
+          "name": "Sistemes informàtics",
+          "ras": [
+            "Avalua sistemes informàtics, identificant els seus components i característiques",
+            "Instal·la sistemes operatius planificant el procés i interpretant documentació tècnica.",
+            "Gestiona la informació del sistema identificant les estructures d'emmagatzematge i aplicant mesures per assegurar la integritat de les dades.",
+            "Gestiona sistemes operatius utilitzant comandes i eines gràfiques i avaluant les necessitats del sistema.",
+            "Interconnecta sistemes en xarxa configurant dispositius i protocols.",
+            "Treballa amb sistemes en xarxa gestionant-ne els recursos i identificant les restriccions de seguretat existents.",
+            "Elabora documentació valorant i utilitzant aplicacions informàtiques de propòsit general."
+          ]
+        },
+        {
+          "code": "0484",
+          "name": "Bases de dades",
+          "ras": [
+            "Reconeix els elements de les bases de dades analitzant-ne les funcions i valorant la utilitat dels sistemes gestors.",
+            "Crea bases de dades definint-ne l'estructura i les característiques dels elements segons el model relacional.",
+            "Consulta la informació emmagatzemada en una base de dades fent servir assistents, eines gràfiques i el llenguatge de manipulació de dades.",
+            "Modifica la informació emmagatzemada a la base de dades utilitzant assistents, eines gràfiques i el llenguatge de manipulació de dades.",
+            "Desenvolupa procediments emmagatzemats avaluant i utilitzant les sentències del llenguatge incorporat al sistema gestor de bases de dades.",
+            "Dissenya models relacionals normalitzats interpretant diagrames entitat/relació.",
+            "Gestiona la informació emmagatzemada en bases de dades no relacionals, avaluant i utilitzant les possibilitats que proporciona el sistema gestor."
+          ]
+        },
+        {
+          "code": "0485",
+          "name": "Programació",
+          "ras": [
+            "Reconeix l'estructura d'un programa informàtic, identificant i relacionant els elements propis del llenguatge de programació utilitzat.",
+            "Escriu i prova programes senzills, reconeixent i aplicant els fonaments de la programació orientada a objectes.",
+            "Escriu i depura codi, analitzant i utilitzant les estructures de control del llenguatge.",
+            "Desenvolupa programes organitzats en classes analitzant i aplicant els principis de la programació orientada a objectes.",
+            "Realitza operacions d'entrada i sortida d'informació, utilitzant procediments específics del llenguatge i llibreries de classes.",
+            "Escriu programes que manipulin informació seleccionant i utilitzant tipus avançats de dades.",
+            "Desenvolupa programes aplicant característiques avançades dels llenguatges orientats a objectes i de l'entorn de programació.",
+            "Utilitza bases de dades orientades a objectes, analitzant-ne les característiques i aplicant tècniques per mantenir la persistència de la informació.",
+            "Gestiona informació emmagatzemada en bases de dades mantenint la integritat i consistència de les dades."
+          ]
+        },
+        {
+          "code": "0487",
+          "name": "Entorns de desenvolupament",
+          "ras": [
+            "Reconeix els elements i les eines que intervenen en el desenvolupament d'un programa informàtic, analitzant-ne les característiques i les fases en què actuen fins a arribar a la posada en funcionament.",
+            "Avalua entorns integrats de desenvolupament analitzant-ne les característiques per editar codi font i generar executables.",
+            "Verifica el funcionament de programes dissenyant i realitzant proves.",
+            "Optimitza codi utilitzant les eines disponibles a l'entorn de desenvolupament.",
+            "Genera diagrames de classes valorant-ne la importància en el desenvolupament d'aplicacions i emprant eines específiques.",
+            "Genera diagrames de comportament valorant-ne la importància en el desenvolupament d'aplicacions i emprant eines específiques."
+          ]
+        },
+        {
+          "code": "0612",
+          "name": "Desenvolupament web en entorn client",
+          "ras": [
+            "Selecciona les arquitectures i tecnologies de programació sobre clients web, identificant i analitzant les capacitats i les característiques de cadascuna.",
+            "Escriu sentències simples, aplicant la sintaxi del llenguatge i verificant la seva execució sobre navegadors web.",
+            "Escriu codi, identificant i aplicant les funcionalitats aportades pels objectes predefinits del llenguatge.",
+            "4. Programa codi per a clients web analitzant i utilitzant estructures definides per l’usuari.",
+            "Desenvolupa aplicacions web interactives integrant mecanismes de maneig d'esdeveniments.",
+            "Desenvolupa aplicacions web analitzant i aplicant les característiques del model d'objectes del document.",
+            "Desenvolupa aplicacions web dinàmiques, reconeixent i aplicant mecanismes de comunicació asíncrona entre client i servidor."
+          ]
+        },
+        {
+          "code": "0613",
+          "name": "Desenvolupament web en entorn servidor",
+          "ras": [
+            "Selecciona les arquitectures i tecnologies de programació web en entorn servidor, analitzant les capacitats i característiques pròpies.",
+            "Escriu sentències executables per un servidor web reconeixent i aplicant procediments d’integració del codi en llenguatges de marques.",
+            "Escriu blocs de sentències embeguts en llenguatges de marques, seleccionant i utilitzant les estructures de programació.",
+            "Desenvolupa aplicacions web embegudes en llenguatges de marques analitzant i incorporant funcionalitats segons especificacions.",
+            "Desenvolupa aplicacions web identificant i aplicant mecanismes per separar el codi de presentació de la lògica de negoci.",
+            "Desenvolupa aplicacions web d'accés a magatzems de dades, aplicant mesures per mantenir la seguretat i la integritat de la informació.",
+            "Desenvolupa serveis web reutilitzables i accessibles mitjançant protocols web, verificant-ne el funcionament.",
+            "Genera pàgines web dinàmiques analitzant i utilitzant tecnologies i frameworks del servidor web que afegeixin codi al llenguatge de marques.",
+            "Desenvolupa aplicacions web híbrides seleccionant i utilitzant tecnologies, frameworks servidor i repositoris heterogenis d'informació."
+          ]
+        },
+        {
+          "code": "0614",
+          "name": "Desplegament d’aplicacions web",
+          "ras": [
+            "Implanta arquitectures web analitzant i aplicant criteris de funcionalitat.",
+            "Implanta aplicacions web en servidors web, avaluant i aplicant criteris de configuració per al funcionament segur.",
+            "Implanta aplicacions web en servidors d'aplicacions, avaluant i aplicant criteris de configuració per al funcionament segur.",
+            "Administra servidors de transferència de fitxers, avaluant i aplicant criteris de configuració que garanteixin la disponibilitat del servei.",
+            "Verifica l'execució d'aplicacions web comprovant els paràmetres de configuració de serveis de xarxa.",
+            "Elabora la documentació de l’aplicació web avaluant i seleccionant eines de generació de documentació, control de versions i d’integració contínua."
+          ]
+        },
+        {
+          "code": "0615",
+          "name": "Disseny d’interfícies web",
+          "ras": [
+            "Planifica la creació d'una interfície web valorant i aplicant especificacions de disseny.",
+            "Crea interfícies web homogènies definint i aplicant estils.",
+            "Prepara arxius multimèdia per al web, analitzant-ne les característiques i manejant eines específiques.",
+            "Integra contingut multimèdia en documents web valorant la seva aportació i seleccionant adequadament els elements interactius.",
+            "Desenvolupa interfícies web accessibles, analitzant les pautes establertes i aplicant-hi tècniques de verificació.",
+            "Desenvolupa interfícies web amigables analitzant i aplicant les pautes d'usabilitat establertes.",
+            "Principis i Pautes d'Accessibilitat al Contingut a la Web (WCAG)."
+          ]
+        },
+        {
+          "code": "0179",
+          "name": "Anglès professional",
+          "ras": [
+            "Comprèn informació, d'índole professional, acadèmica i quotidiana, continguda en tota mena de discursos orals, emesos per qualsevol mitjà de comunicació en llengua estàndard, interpretant amb precisió el contingut del missatge.",
+            "Comprèn missatges escrits, de naturalesa professional, acadèmica i quotidiana, de relativa dificultat, analitzant de manera comprensiva el seu contingut.",
+            "Emet missatges orals clars i ben estructurats, analitzant el contingut de la situació i adaptant-se al registre lingüístic de l'interlocutor.",
+            "Redacta documents i informes, propis del sector o de la vida acadèmica i quotidiana, relacionant els recursos lingüístics amb el seu propòsit.",
+            "Aplica actituds i comportaments professionals en situacions de comunicació, descrivint les relacions típiques característiques del país de la llengua estrangera."
+          ]
+        },
+        {
+          "code": "1665",
+          "name": "Digitalització aplicada als sectors productius",
+          "ras": [
+            "Analitza el concepte de digitalització i la seva repercussió en els sectors productius tenint en compte l'activitat de l'empresa i identificant entorns IT (Information Technology: tecnologia de la informació) i OT (Operation Technology: tecnologia d'operació) característics.",
+            "Caracteritza les tecnologies habilitadores digitals necessàries per a l'adequació/transformació de les empreses a entorns digitals descrivint les seves característiques i aplicacions.",
+            "Identifica sistemes basats en cloud/núvol i la seva influència en el desenvolupament dels sistemes digitals.",
+            "Identifica aplicacions de la IA (intel·ligència artificial) en entorns del sector on està emmarcat el títol descrivint les millores implícites en la seva implementació",
+            "Avalua la importància de les dades, així com la seva protecció en una economia digital globalitzada, definint sistemes de seguretat i ciberseguretat tant a nivell d'equip/sistema, com a globals.",
+            "Desenvolupa un projecte de transformació digital d'una empresa d'un sector relacionat amb el títol, tenint en compte els canvis que s'han de produir en funció dels objectius de l'empresa."
+          ]
+        },
+        {
+          "code": "1708",
+          "name": "Sostenibilitat Aplicada al Sistema Productiu",
+          "ras": [
+            "Identifica els aspectes ambientals, socials i de governança (ASG) relatius a la sostenibilitat tenint en compte el concepte de desenvolupament sostenible i els marcs internacionals que contribueixen a la seva consecució.",
+            "Caracteritza els reptes ambientals i socials als quals s'enfronta la societat, descrivint els impactes sobre les persones i els sectors productius i proposant accions per a minimitzar-los.",
+            "Estableix l'aplicació de criteris de sostenibilitat en l'acompliment professional i personal, identificant els elements necessaris.",
+            "Proposa productes i serveis responsables tenint en compte els principis de l’economia circular.",
+            "Realitza activitats sostenibles minimitzant l'impacte de les mateixes en el medi ambient.",
+            "Analitza un pla de sostenibilitat d'una empresa del sector, identificant els seus grups d'interès, els aspectes ASG materials i justificant accions per a la seva gestió i mesurament."
+          ]
+        },
+        {
+          "code": "1709",
+          "name": "Itinerari personal per a l'ocupabilitat I",
+          "ras": [
+            "Distingeix les característiques del sector productiu i defineix els llocs de treball, relacionant-los amb les competències professionals expressades en el títol.",
+            "Assoleix les competències necessàries per a l'obtenció del títol de Tècnic Bàsic en Prevenció de Riscos Laborals.",
+            "Analitza i avalua el seu potencial professional i els seus interessos per a guiar-se en el procés d'autoorientació i elabora un full de ruta per a la inserció professional partint de l'anàlisi de les competències, interessos i destreses personals.",
+            "Aplica les estratègies per a l'aprenentatge autònom reconeixent el seu valor professionalitzador, dissenyant i optimitzant el seu propi entorn d'aprenentatge fent ús de les tecnologies digitals com a eines d'aprenentatge autònom, sent coherent amb la seva identitat digital i els seus objectius professionals plantejats en el seu pla de desenvolupament individual."
+          ]
+        },
+        {
+          "code": "1710",
+          "name": "Itinerari personal per a l'ocupabilitat II",
+          "ras": [
+            "Planifica i posa en marxa estratègies en els diferents processos selectius d'ocupació que li permeten millorar les seves possibilitats d'inserció laboral.",
+            "Aplica estratègies relacionades amb les competències personals, socials i emocionals per al desenvolupament de la seva iniciativa emprenedora i la millora de la seva ocupabilitat.",
+            "Posa en pràctica les habilitats emprenedores necessàries per al desenvolupament de processos d’innovació i recerca aplicades que promouen la modernització del sector productiu cap a un model sostenible.",
+            "Identifica, defineix i valida idees d’emprenedoria generadores de noves oportunitats a partir d’estratègies d’anàlisi de l’entorn socioproductiu utilitzant metodologies àgils per l’emprenedoria.",
+            "Desenvolupa un projecte emprenedor d’innovació social i/o tecnològica aplicada en col·laboració amb l’entorn."
+          ]
+        },
+        {
+          "code": "0616",
+          "name": "Projecte intermodular de desenvolupament d'aplicacions web",
+          "ras": [
+            "Identifica necessitats del sector productiu, relacionant-les amb projectes tipus que les puguin satisfer.",
+            "Dissenya projectes relacionats amb les competències expressades al títol, desenvolupant explícitament les fases que el componen.",
+            "Planifica l'execució del projecte, determinant el pla d'intervenció i la documentació associada.",
+            "Defineix els procediments per al seguiment i el control en l'execució del projecte, justificant la selecció de variables i instruments emprats."
+          ]
+        }
+      ]
+    }
+  }
+}
