@@ -2,7 +2,7 @@
   "activities": [
     {
       "id": "PROG_RA1_ACT1",
-      "title": "Moviment b�sic del personatge",
+      "title": "Moviment bàsic del personatge",
       "type": "CSharpScript",
       "deliverableType": "CSharpScript",
       "moduleCode": "0485",
@@ -19,6 +19,51 @@
       "resourcePaths": [],
       "targetPaths": [
         "Assets/TransversalExercises/Programming/TransversalPlayerMovement.cs"
+      ]
+    },
+    {
+      "id": "PROG_RA1_ACT2",
+      "title": "Variables bàsiques en moviment",
+      "type": "CSharpScript",
+      "deliverableType": "CSharpScript",
+      "moduleCode": "0485",
+      "learningOutcomeId": "RA1",
+      "studentTemplatePaths": [
+        "Assets/TransversalTool/Templates/Student/Programming/TransversalVariableBasicsTemplate.cs"
+      ],
+      "teacherSolutionPaths": [
+        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalVariableBasicsSolution.cs"
+      ],
+      "statementPaths": [
+        "Assets/TransversalTool/Documentation/Statements/Programming_RA1_Variables.md"
+      ],
+      "resourcePaths": [],
+      "targetPaths": [
+        "Assets/TransversalExercises/Programming/TransversalVariableBasics.cs"
+      ]
+    },
+    {
+      "id": "PROG_RA3_ACT1",
+      "title": "Spawner de monedes amb bucles",
+      "type": "CSharpScript",
+      "deliverableType": "CSharpScript",
+      "moduleCode": "0485",
+      "learningOutcomeId": "RA3",
+      "studentTemplatePaths": [
+        "Assets/TransversalTool/Templates/Student/Programming/TransversalCoinSpawnerTemplate.cs",
+        "Assets/TransversalTool/Templates/Student/Programming/TransversalCoinPickupGiven.cs"
+      ],
+      "teacherSolutionPaths": [
+        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalCoinSpawnerSolution.cs",
+        "Assets/TransversalTool/Templates/Student/Programming/TransversalCoinPickupGiven.cs"
+      ],
+      "statementPaths": [
+        "Assets/TransversalTool/Documentation/Statements/Programming_RA3_BuclesSpawner.md"
+      ],
+      "resourcePaths": [],
+      "targetPaths": [
+        "Assets/TransversalExercises/Programming/TransversalCoinSpawner.cs",
+        "Assets/TransversalExercises/Programming/TransversalCoinPickup.cs"
       ]
     },
     {
@@ -44,7 +89,7 @@
     },
     {
       "id": "LM_RA1_ACT1",
-      "title": "Fitxer JSON de configuraci�",
+      "title": "Fitxer JSON de configuració",
       "type": "JSON",
       "deliverableType": "JSON",
       "moduleCode": "0373",
@@ -61,6 +106,74 @@
       "resourcePaths": [],
       "targetPaths": [
         "Assets/TransversalExercises/Markup/config.json"
+      ]
+    },
+    {
+      "id": "LM_RA2_ACT1",
+      "title": "Estils USS (similar a CSS) per a HUD",
+      "type": "USS",
+      "deliverableType": "USS",
+      "moduleCode": "0373",
+      "learningOutcomeId": "RA2",
+      "studentTemplatePaths": [
+        "Assets/TransversalTool/Templates/Student/Markup/HudStyleTemplate.uss"
+      ],
+      "teacherSolutionPaths": [
+        "Assets/TransversalTool/Templates/Teacher/Markup/HudStyleSolution.uss"
+      ],
+      "statementPaths": [
+        "Assets/TransversalTool/Documentation/Statements/Markup_RA2_UssStyles.md"
+      ],
+      "resourcePaths": [],
+      "targetPaths": [
+        "Assets/TransversalExercises/Markup/hud_style.uss"
+      ]
+    },
+    {
+      "id": "LM_RA6_ACT1",
+      "title": "Serialització JSON de partida",
+      "type": "JSON",
+      "deliverableType": "JSON",
+      "moduleCode": "0373",
+      "learningOutcomeId": "RA6",
+      "studentTemplatePaths": [
+        "Assets/TransversalTool/Templates/Student/Markup/SaveGameTemplate.json"
+      ],
+      "teacherSolutionPaths": [
+        "Assets/TransversalTool/Templates/Teacher/Markup/SaveGameSolution.json"
+      ],
+      "statementPaths": [
+        "Assets/TransversalTool/Documentation/Statements/Markup_RA6_Serialitzacio.md"
+      ],
+      "resourcePaths": [],
+      "targetPaths": [
+        "Assets/TransversalExercises/Markup/savegame.json"
+      ]
+    },
+    {
+      "id": "AD_RA6_ACT1",
+      "title": "Guardar i recuperar savegame a base de dades",
+      "type": "CSharpScript",
+      "deliverableType": "RepositoryComponent",
+      "moduleCode": "0486",
+      "learningOutcomeId": "RA6",
+      "studentTemplatePaths": [
+        "Assets/TransversalTool/Templates/Student/AccessData/SaveGameRepositoryTemplate.cs",
+        "Assets/TransversalTool/Templates/Student/AccessData/SaveGameSnapshotTemplate.sql"
+      ],
+      "teacherSolutionPaths": [
+        "Assets/TransversalTool/Templates/Teacher/AccessData/SaveGameRepositorySolution.cs",
+        "Assets/TransversalTool/Templates/Teacher/AccessData/SaveGameSnapshotSolution.sql"
+      ],
+      "statementPaths": [
+        "Assets/TransversalTool/Documentation/Statements/AccessData_RA6_SavegameDB.md"
+      ],
+      "resourcePaths": [
+        "Assets/TransversalTool/Templates/Teacher/Markup/SaveGameSolution.json"
+      ],
+      "targetPaths": [
+        "Assets/TransversalExercises/AccessData/SaveGameRepository.cs",
+        "Assets/TransversalExercises/AccessData/savegame_snapshot.sql"
       ]
     }
   ]

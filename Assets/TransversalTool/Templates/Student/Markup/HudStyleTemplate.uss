@@ -1,0 +1,11 @@
+.hud-title {
+    /* TODO: Defineix color, mida de lletra i pes */
+}
+
+.hud-score {
+    /* TODO: Defineix color i marge */
+}
+
+.hud-button-primary {
+    /* TODO: Defineix fons, color text, padding i border-radius */
+}

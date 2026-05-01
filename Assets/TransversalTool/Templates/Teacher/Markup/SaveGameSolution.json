@@ -1,0 +1,10 @@
+{
+  "player": {
+    "name": "Alex",
+    "level": 3
+  },
+  "coins": 42,
+  "lives": 2,
+  "completed": false,
+  "lastCheckpoint": "Cova_Nord_02"
+}
