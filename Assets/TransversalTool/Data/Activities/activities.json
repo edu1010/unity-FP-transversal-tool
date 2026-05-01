@@ -2,7 +2,7 @@
   "activities": [
     {
       "id": "PROG_RA1_ACT1",
-      "title": "Moviment bàsic del personatge",
+      "title": "Moviment bï¿½sic del personatge",
       "type": "CSharpScript",
       "deliverableType": "CSharpScript",
       "moduleCode": "0485",
@@ -44,7 +44,7 @@
     },
     {
       "id": "LM_RA1_ACT1",
-      "title": "Fitxer JSON de configuració",
+      "title": "Fitxer JSON de configuraciï¿½",
       "type": "JSON",
       "deliverableType": "JSON",
       "moduleCode": "0373",

@@ -688,6 +688,11 @@ PrefabInstance:
       propertyPath: PeakDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7767603945355661956, guid: 1e08c6535317ea34d95a451d169a851c,
+        type: 3}
+      propertyPath: NumberOfJumps
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7767603945355662067, guid: 1e08c6535317ea34d95a451d169a851c,
         type: 3}
       propertyPath: m_Name

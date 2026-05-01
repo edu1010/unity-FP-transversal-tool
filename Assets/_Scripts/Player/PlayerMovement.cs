@@ -6,17 +6,24 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D _rigidbody;
-    public float Speed = 0.1f;
-    float _currentSpeed;
-    public float MaxSpeed = 20f;
+    [SerializeField]
+    public float MaxSpeed = 12f;
+    [SerializeField]
+    public float Acceleration = 80f;
+    [SerializeField]
+    public float Deceleration = 90f;
+    [SerializeField]
+    [Range(0f, 1f)]
+    public float AirControl = 0.7f;
     private float _horizonantal;
     WallJump wallJump;
-    Vector2 dir;
+    CollisionDetection _detector;
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         wallJump = GetComponent<WallJump>();
+        _detector = GetComponent<CollisionDetection>();
     }
 
     // Update is called once per frame
@@ -25,14 +32,19 @@ public class PlayerMovement : MonoBehaviour
         if (!wallJump.wallJumping)
         {
             Vector2 vel = _rigidbody.linearVelocity;
-            vel.x = _horizonantal * Speed;
+            float targetSpeed = _horizonantal * MaxSpeed;
+            float speedDiff = targetSpeed - vel.x;
+            float accelRate = Mathf.Abs(targetSpeed) > 0.01f ? Acceleration : Deceleration;
+
+            if (!_detector.IsGrounded)
+            {
+                accelRate *= AirControl;
+            }
+
+            vel.x += speedDiff * accelRate * Time.fixedDeltaTime;
+            vel.x = Mathf.Clamp(vel.x, -MaxSpeed, MaxSpeed);
             _rigidbody.linearVelocity = vel;
         }
-        dir = _rigidbody.linearVelocity.normalized;
-        _currentSpeed = _rigidbody.linearVelocity.magnitude;
-        _rigidbody.linearVelocity = dir * Mathf.Min(_currentSpeed, MaxSpeed);
-    
-
     }
 
     void OnMove(InputValue input)

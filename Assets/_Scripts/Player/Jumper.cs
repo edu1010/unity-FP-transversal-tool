@@ -12,20 +12,32 @@ public class Jumper : MonoBehaviour
     float jumpSpeed = 5;
     //Y
     public float JumpHeight = 3;
-    public float TimeToPeak = 2;
+    public float TimeToPeak = 0.5f;
     //X
     public float PeakDistance = 2;
     public float MaxSpeedHorizontal = 5;
-    private float CurrentSpeedHorizontal = 5;
 
     public bool X = true;//Si es true las funciones se hacen en funcion de la horizontal sino de la vertical
-    public float PressTimeForMaxJump = 0.5f;
+    public float PressTimeForMaxJump = 0.15f;
     public int _currentJumps;
     public int NumberOfJumps = 1;
-    private float _lastVelocitY;
     private float _jumpStartTime;
     WallJump wallJump;
-    public float tweakGravity = 1.2f;
+    [SerializeField]
+    private float CoyoteTime = 0.1f;
+    [SerializeField]
+    private float JumpBufferTime = 0.1f;
+    [SerializeField]
+    private float FallGravityMultiplier = 2.2f;
+    [SerializeField]
+    private float LowJumpGravityMultiplier = 1.8f;
+    [SerializeField]
+    private float MaxFallSpeed = 25f;
+
+    private float _coyoteTimer;
+    private float _jumpBufferTimer;
+    private bool _jumpHeld;
+    private float _baseGravityScale = 1f;
 
 
 
@@ -35,6 +47,7 @@ public class Jumper : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         _detector = GetComponent<CollisionDetection>();
         wallJump = GetComponent<WallJump>();
+        SetGravity();
     }
 
     private void OnEnable()
@@ -48,124 +61,80 @@ public class Jumper : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (X)
+        UpdateTimers();
+
+        if (_jumpBufferTimer > 0f)
         {
-            //CurrentSpeedHorizontal = Math.Min(MaxSpeedHorizontal, rigidbody.velocity.x);
-            //rigidbody.velocity = new Vector2(CurrentSpeedHorizontal, rigidbody.velocity.y);
-            if (ReachedPeak())
-            {
-                TweakGravity();
-            }
+            TryJump();
         }
-        
-        
+
+        ApplyBetterJumpGravity();
     }
 
    
 
-    private bool ReachedPeak()//Cuando la velocidad del jugador es 0 en Y
-    {
-        bool reached = (_lastVelocitY > 0 && rigidbody.linearVelocity.y <= 0);//Se hace de esta manera por si en ningun frame esta en 0 y pase de 1 a -1 etc
-        _lastVelocitY = rigidbody.linearVelocity.y;
-        return reached;
-    }
-
-    private void TweakGravity()//Cuando llega al punto más alto aumentamos la gravedad para que baje más rapido
-    {
-        rigidbody.gravityScale *= tweakGravity;
-        
-    }
-
     void OnJumpStarted()
     {
-        TryJump();
-        _jumpStartTime = Time.time;
+        _jumpBufferTimer = JumpBufferTime;
+        _jumpHeld = true;
     }
     void OnJumpFinished()
     {
-      //Si es un numero pequeño lo multipla x10 si es alto por 1
-    float f = 1 / Mathf.Max( Mathf.Clamp01((Time.time - _jumpStartTime) /
-            PressTimeForMaxJump),0.01f);
-        
-        TweakShortJumpGravity(f);
-    }
-
-    private void TweakShortJumpGravity(float f)//Salto más corto si no mantienes el boton
-    {
-        if (!wallJump.wallJumping)
-        {
-            rigidbody.gravityScale *= f;
-        } 
+        _jumpHeld = false;
     }
 
     private void TryJump()
     {
-        if (wallJump.wallJumping)
+        if (wallJump.IsWallSliding)
         {
-            transform.localScale= new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            wallJump.BeginWallJump();
             WallJump();
         }
         else
         {
-            if (_detector.IsGrounded || _currentJumps < NumberOfJumps)
+            if (_detector.IsGrounded || _coyoteTimer > 0f || _currentJumps < NumberOfJumps)
             {
 
                 Jump();
             }
         }
-        
-        
+        _jumpBufferTimer = 0f;
     }
     void Jump()
     {
         _currentJumps++;
+        _jumpStartTime = Time.time;
         SetGravity();
         rigidbody.linearVelocity = new Vector2(rigidbody.linearVelocity.x, getJumpSpeed());
     }
     void WallJump()
     {
-        rigidbody.gravityScale = 1;
-        _currentJumps = 0;
         SetGravity();
+        _currentJumps = 1;
+        _jumpStartTime = Time.time;
         //rigidbody.AddForce(new Vector2(wallJump.NextWall * wallJump.WallJumpSpeed, 2), ForceMode2D.Impulse);
         //rigidbody.velocity = new Vector2(rigidbody.velocity.x, getJumpSpeed());
-        rigidbody.linearVelocity = new Vector2(wallJump.NextWall * wallJump.WallJumpSpeed, getJumpSpeed());
+        float jumpDirection = Mathf.Sign(wallJump.NextWall);
+        transform.localScale = new Vector3(jumpDirection, transform.localScale.y, transform.localScale.z);
+        rigidbody.linearVelocity = new Vector2(jumpDirection * wallJump.WallJumpSpeed, getJumpSpeed());
         
         
     }
     private void SetGravity()
     {
-        if (X)
-        {
-            rigidbody.gravityScale *= -2 * JumpHeight*(CurrentSpeedHorizontal*CurrentSpeedHorizontal) 
-                / (PeakDistance * PeakDistance)
-                / Physics2D.gravity.y;
-        }
-        else
-        {
-            //La gravedad es -2 veces la altura dividido entre el tiempo
-            //GravityScale multipla por la gravedad del juego en este caso -9,8 
-            //por lo tanto tenenemos que dividir el resultado entre la gravedad total
-            rigidbody.gravityScale *= -2 * JumpHeight / (TimeToPeak * TimeToPeak)
-                / Physics2D.gravity.y;
-        }
+        //La gravedad es -2 veces la altura dividido entre el tiempo
+        //GravityScale multipla por la gravedad del juego en este caso -9,8 
+        //por lo tanto tenenemos que dividir el resultado entre la gravedad total
+        float gravity = -2f * JumpHeight / (TimeToPeak * TimeToPeak);
+        _baseGravityScale = gravity / Physics2D.gravity.y;
+        rigidbody.gravityScale = _baseGravityScale;
         
     }
 
     float getJumpSpeed()
     {
-        if (X)//Tenemos en cuenta X e Y
-        {
-            //velocidad inical = 2 veces la altura multiplicado por la velocidad en x dividido entre la distancia en horizontal
-            
-            return 2 * JumpHeight * CurrentSpeedHorizontal / PeakDistance;
-        }
-        else//Tenemos en cuenta solo Y
-        {
-            //Velocidad = 2 veces la altura maxima divididio entre el tiempo
-            return 2 * JumpHeight / TimeToPeak;
-        }
-        
+        //Velocidad = 2 veces la altura maxima divididio entre el tiempo
+        return 2 * JumpHeight / TimeToPeak;
 
     }
 
@@ -173,6 +142,56 @@ public class Jumper : MonoBehaviour
     void OnLanded()
     {
         _currentJumps = 0;
-        rigidbody.gravityScale = 1;
+        rigidbody.gravityScale = _baseGravityScale;
+    }
+
+    private void UpdateTimers()
+    {
+        if (_detector.IsGrounded)
+        {
+            _coyoteTimer = CoyoteTime;
+        }
+        else
+        {
+            _coyoteTimer -= Time.fixedDeltaTime;
+        }
+
+        if (_jumpBufferTimer > 0f)
+        {
+            _jumpBufferTimer -= Time.fixedDeltaTime;
+        }
+    }
+
+    private void ApplyBetterJumpGravity()
+    {
+        if (wallJump.wallJumping)
+        {
+            return;
+        }
+
+        Vector2 vel = rigidbody.linearVelocity;
+        if (vel.y < 0)
+        {
+            rigidbody.gravityScale = _baseGravityScale * FallGravityMultiplier;
+        }
+        else if (vel.y > 0 && ShouldCutJump())
+        {
+            rigidbody.gravityScale = _baseGravityScale * LowJumpGravityMultiplier;
+        }
+        else
+        {
+            rigidbody.gravityScale = _baseGravityScale;
+        }
+
+        if (vel.y < -MaxFallSpeed)
+        {
+            vel.y = -MaxFallSpeed;
+            rigidbody.linearVelocity = vel;
+        }
+    }
+
+    private bool ShouldCutJump()
+    {
+        return !_jumpHeld && (Time.time - _jumpStartTime) < PressTimeForMaxJump;
     }
 }

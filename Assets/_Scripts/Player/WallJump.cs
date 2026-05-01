@@ -7,17 +7,16 @@ public class WallJump : MonoBehaviour, IWallJump
     Rigidbody2D rigidbody;
     CollisionDetection _detector;
 
-    bool PlayerMoveToTheWall = false;
-
     public bool Wallsliding => _detector.IsTouchingRightWall;
     public bool WallslidingInvers => _detector.IsTouchingLeftWall;//Por si se gira el jugador
+    public bool IsWallSliding => !_detector.IsGrounded && (Wallsliding || WallslidingInvers) && rigidbody.linearVelocity.y <= 0f;
 
     public float WallSlideSpeed = 2;
     public bool WallsGrounded => _detector.IsGrounded;
     public bool wallJumping = false;
     public bool wasWallJumping = false;
     public int NextWall = -1; //-1 derecha 1 izquierda
-    public float WallJumpSpeed = 15;
+    public float WallJumpSpeed = 10;
     public float contador = 0.02f;
     private float _contador = 0.02f;
     // Start is called before the first frame update
@@ -31,55 +30,14 @@ public class WallJump : MonoBehaviour, IWallJump
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Wallsliding || WallslidingInvers)
+        UpdateWallJumpTimer();
+
+        if (IsWallSliding)
         {
-            if (Wallsliding)
-            {
-                if (transform.localScale.x == -1)
-                {
-                    NextWall = 1;
-                }
-                else
-                {
-                    NextWall = -1;
-                }
-
-                if (PlayerMoveToTheWall)
-                {
-                    SetWallSlide();
-                }
-                wallJumping = true;
-
-            } else
-            {
-                if (transform.localScale.x == -1)
-                {
-                    NextWall = -1;
-                }
-                else
-                {
-                    NextWall = 1;
-                }
-                wallJumping = true;
-            }
-            
+            // If touching right wall, jump must push to the left and vice versa.
+            NextWall = Wallsliding ? -1 : 1;
+            SetWallSlide();
         }
-       
-        else
-        {
-            if(wallJumping == true)
-            {
-                contador -= Time.deltaTime;
-                if ((!WallsGrounded) && contador <= 0)
-                {
-                    wallJumping = false;
-                    contador = _contador;
-                }
-            }
-            
-               
-        }
-
     }
 
     private void SetWallSlide()
@@ -90,13 +48,35 @@ public class WallJump : MonoBehaviour, IWallJump
 
     public void OnMove(InputValue value)
     {
-        if (value.Get<Vector2>().x != 0)
+        _ = value;
+        // Input is intentionally not needed for wall slide, kept for interface compatibility.
+    }
+
+    public void BeginWallJump()
+    {
+        wallJumping = true;
+        contador = _contador;
+    }
+
+    private void UpdateWallJumpTimer()
+    {
+        if (!wallJumping)
         {
-            PlayerMoveToTheWall = true;
+            return;
         }
-        else
+
+        if (WallsGrounded)
         {
-            PlayerMoveToTheWall = false;
+            wallJumping = false;
+            contador = _contador;
+            return;
+        }
+
+        contador -= Time.fixedDeltaTime;
+        if (contador <= 0f)
+        {
+            wallJumping = false;
+            contador = _contador;
         }
     }
 }

@@ -9,9 +9,38 @@ public class Animar : MonoBehaviour
     Rigidbody2D rigidbody;
     Jumper jumper;
     CollisionDetection collisionDetection;
-    bool wasGrounded = false;
-    bool preJump = false;
     WallJump wall;
+    [SerializeField]
+    private float SpeedDeadzone = 0.1f;
+    [SerializeField]
+    private float JumpDownThreshold = 0.15f;
+    [SerializeField]
+    private float DoubleJumpHold = 0.2f;
+    [SerializeField]
+    private float AttackHold = 0.2f;
+    [SerializeField]
+    private float DamageHold = 0.2f;
+
+    private float _attackTimer;
+    private float _swordAttackTimer;
+    private float _damageTimer;
+    private float _doubleJumpTimer;
+    private int _lastJumpCount;
+    private bool _dead;
+    private AnimState _state;
+
+    private enum AnimState
+    {
+        Idle,
+        Run,
+        Jump,
+        DoubleJump,
+        JumpDown,
+        Attack,
+        SwordAttack,
+        TakeDamage,
+        Death
+    }
 
     private void OnEnable()
     {
@@ -38,132 +67,102 @@ public class Animar : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Run();       
-
-        if (preJump)
-        {           
-            if (!collisionDetection.IsGrounded)
-            {
-                if (jumper._currentJumps <= 0)
-                {
-                    Jump();
-                }
-                else if (jumper._currentJumps >= 1)
-                {
-                    DoubleJump();
-                }
-                
-            }            
-            else if (collisionDetection.IsGrounded && !wall.wallJumping)
-            {
-                preJump = false;
-                //animator.SetBool("DoubleJump", false);
-                //PreJump();
-                //wasGrounded = collisionDetection.IsGrounded;          
-                //para poder subir a collab
-            }         
-           
-        }
+        UpdateTimers();
+        UpdateState();
+        ApplyAnimator();
     }
 
-    void Run()
+    void UpdateState()
     {
-        animator.SetFloat("Speed", rigidbody.linearVelocity.magnitude);        
-        animator.SetBool("TakeDamage", false);
-        animator.SetBool("Idle", false);
-        animator.SetBool("Attack", false);
-        animator.SetBool("PreJump", false);
-        animator.SetBool("Jump", false);
-        animator.SetBool("DoubleJump", false);
-        animator.SetBool("JumpDown", false);
-        animator.SetBool("SwordAttack", false);
-        animator.SetBool("Death", false);
+        float speedX = Mathf.Abs(rigidbody.linearVelocity.x);
+        float velY = rigidbody.linearVelocity.y;
+        bool grounded = collisionDetection.IsGrounded;
+
+        if (_dead)
+        {
+            _state = AnimState.Death;
+            return;
+        }
+        if (_damageTimer > 0f)
+        {
+            _state = AnimState.TakeDamage;
+            return;
+        }
+        if (_swordAttackTimer > 0f)
+        {
+            _state = AnimState.SwordAttack;
+            return;
+        }
+        if (_attackTimer > 0f)
+        {
+            _state = AnimState.Attack;
+            return;
+        }
+
+        if (!grounded)
+        {
+            if (_doubleJumpTimer > 0f)
+            {
+                _state = AnimState.DoubleJump;
+            }
+            else
+            {
+                if (velY < -JumpDownThreshold)
+                {
+                    _state = AnimState.JumpDown;
+                }
+                else
+                {
+                    _state = AnimState.Jump;
+                }
+            }
+            return;
+        }
+
+        _state = speedX > SpeedDeadzone ? AnimState.Run : AnimState.Idle;
+    }
+
+    void ApplyAnimator()
+    {
+        float speedX = Mathf.Abs(rigidbody.linearVelocity.x);
+
+        animator.SetFloat("Speed", speedX);
+        animator.SetBool("Idle", _state == AnimState.Idle);
+        animator.SetBool("Attack", _state == AnimState.Attack);
+        animator.SetBool("SwordAttack", _state == AnimState.SwordAttack);
+        animator.SetBool("Jump", _state == AnimState.Jump);
+        animator.SetBool("DoubleJump", _state == AnimState.DoubleJump);
+        animator.SetBool("JumpDown", _state == AnimState.JumpDown);
+        animator.SetBool("TakeDamage", _state == AnimState.TakeDamage);
+        animator.SetBool("Death", _state == AnimState.Death);
     }
 
     void Attack()
     {
-        animator.SetBool("Attack", true);
-        animator.SetBool("TakeDamage", false);
-        animator.SetBool("Idle", false);        
-        animator.SetBool("PreJump", false);
-        animator.SetBool("Jump", false);
-        animator.SetBool("DoubleJump", false);
-        animator.SetBool("JumpDown", false);
-        animator.SetBool("SwordAttack", false);
-        animator.SetBool("Death", false);
+        _attackTimer = AttackHold;
     }
 
-    void Idle()
-    {
-        animator.SetBool("Idle", true);
-        animator.SetBool("PreJump", false);
-        preJump = false;
-    }
+    void Idle() { }
 
     void PreJump()
     {
-        //hola
-        animator.SetBool("PreJump", true);        
-        animator.SetBool("TakeDamage", false);
-        animator.SetBool("Idle", false);
-        animator.SetBool("Attack", false);        
-        animator.SetBool("Jump", false);
-        animator.SetBool("DoubleJump", false);
-        animator.SetBool("JumpDown", false);
-        animator.SetBool("SwordAttack", false);
-        animator.SetBool("Death", false);
     }
 
-    void Jump()
-    {
-        if (wall.Wallsliding || wall.WallslidingInvers)
-        {
-            DoubleJump();
-        } 
-        else
-        {
+    void Jump() { }
 
-            animator.SetBool("Jump", true);
-            animator.SetBool("PreJump", false);
-        }
-    }
-
-    void DoubleJump()
-    {
-        animator.SetBool("DoubleJump", true);
-        animator.SetBool("Jump", true);
-    }
+    void DoubleJump() { }
 
     void Damage(float damage)
     {
-        animator.SetBool("TakeDamage", true);
-        animator.SetBool("Idle", false);
-        animator.SetBool("Attack", false);
-        animator.SetBool("PreJump", false);
-        animator.SetBool("Jump", false);
-        animator.SetBool("DoubleJump", false);
-        animator.SetBool("JumpDown", false);
-        animator.SetBool("SwordAttack", false);
-        animator.SetBool("Death", false);        
+        _damageTimer = DamageHold;
     }
 
     void Death()
     {
-        animator.SetBool("Death", true);
+        _dead = true;
     }
 
-    void Fall() 
-    {
-        animator.SetBool("JumpDown", true);
-        animator.SetBool("TakeDamage", false);
-        animator.SetBool("Idle", false);
-        animator.SetBool("Attack", false);
-        animator.SetBool("PreJump", false);
-        animator.SetBool("Jump", false);
-        animator.SetBool("DoubleJump", false);       
-        animator.SetBool("SwordAttack", false);
-        animator.SetBool("Death", false);
-    }
+    void Fall() { }
     
     void OnMove(InputValue input)
     {
@@ -183,18 +182,53 @@ public class Animar : MonoBehaviour
 
     void OnJumpStarted()
     {
-        if (!wall.wallJumping) 
+        if (!wall.wallJumping && collisionDetection.IsGrounded)
         {
-            PreJump();
-
+            animator.SetTrigger("PreJump");
         }
-        preJump = true;
 
         //wasGrounded = false;
     }     
     void OnAttack()
     {
+        _swordAttackTimer = AttackHold;
         animator.SetTrigger("Sword");
+    }
+
+    private void UpdateTimers()
+    {
+        if (_attackTimer > 0f)
+        {
+            _attackTimer -= Time.fixedDeltaTime;
+        }
+        if (_swordAttackTimer > 0f)
+        {
+            _swordAttackTimer -= Time.fixedDeltaTime;
+        }
+        if (_damageTimer > 0f)
+        {
+            _damageTimer -= Time.fixedDeltaTime;
+        }
+
+        if (collisionDetection.IsGrounded)
+        {
+            _lastJumpCount = 0;
+            _doubleJumpTimer = 0f;
+        }
+
+        if (jumper._currentJumps > _lastJumpCount)
+        {
+            if (jumper._currentJumps >= 2)
+            {
+                _doubleJumpTimer = DoubleJumpHold;
+            }
+            _lastJumpCount = jumper._currentJumps;
+        }
+
+        if (_doubleJumpTimer > 0f)
+        {
+            _doubleJumpTimer -= Time.fixedDeltaTime;
+        }
     }
        
 }

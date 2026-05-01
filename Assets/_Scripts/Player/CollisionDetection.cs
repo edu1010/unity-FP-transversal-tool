@@ -47,7 +47,7 @@ public class CollisionDetection : MonoBehaviour
     {
         var colliders = Physics2D.OverlapCircleAll(GroundCheckPoint.position, checkRadius, WhatIsGround);
         _isGrounded = colliders.Length > 0;
-        if(_wasGrounded && _isGrounded)
+        if(!_wasGrounded && _isGrounded)
         {
             OnLanding?.Invoke();
         }
@@ -55,17 +55,33 @@ public class CollisionDetection : MonoBehaviour
     }  
     private void CheckRight()
     {
-        var colliders = Physics2D.OverlapCircleAll(RightCheckPoint.position,
+        Vector3 rightPosition = GetCheckPosition(RightCheckPoint, LeftCheckPoint, false);
+        var colliders = Physics2D.OverlapCircleAll(rightPosition,
           checkRadius, WhatIsWall);
         _isTouchingRight = colliders.Length > 0;
         
     } 
     private void CheckLeft()
     {
-        var colliders = Physics2D.OverlapCircleAll(LeftCheckPoint.position,
+        Vector3 leftPosition = GetCheckPosition(LeftCheckPoint, RightCheckPoint, true);
+        var colliders = Physics2D.OverlapCircleAll(leftPosition,
           checkRadius, WhatIsWall);
         _isTouchingLeft = colliders.Length > 0;
         
+    }
+
+    private Vector3 GetCheckPosition(Transform primaryPoint, Transform mirroredPoint, bool wantLeftSide)
+    {
+        Transform sourcePoint = primaryPoint != null ? primaryPoint : mirroredPoint;
+        if (sourcePoint != null)
+        {
+            float horizontalOffset = Mathf.Abs(sourcePoint.localPosition.x);
+            float verticalOffset = sourcePoint.localPosition.y;
+            float side = wantLeftSide ? -1f : 1f;
+            return transform.position + new Vector3(horizontalOffset * side, verticalOffset, 0f);
+        }
+
+        return transform.position;
     }
 
 }
