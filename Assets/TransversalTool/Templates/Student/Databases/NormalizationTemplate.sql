@@ -1,0 +1,2 @@
+﻿-- TODO: Proposa taules separades per eliminar dependències parcials/transitives.
+-- TODO: Defineix claus primàries i foranes.

@@ -130,35 +130,57 @@ namespace TransversalTool
                     targetPaths = GetStringList(dict, "targetPaths")
                 };
 
-                var module = FindModule(catalog, activity.moduleCode);
-                if (module == null)
+                var modules = FindModules(catalog, activity.moduleCode);
+                if (modules.Count == 0)
                 {
                     continue;
                 }
 
-                var ra = FindLearningOutcome(module, activity.learningOutcomeId);
-                if (ra == null)
+                foreach (var module in modules)
                 {
-                    continue;
-                }
+                    var ra = FindLearningOutcome(module, activity.learningOutcomeId);
+                    if (ra == null)
+                    {
+                        continue;
+                    }
 
-                ra.activities.Add(activity);
+                    ra.activities.Add(CloneActivity(activity));
+                }
             }
         }
 
-        static ModuleDefinition FindModule(CurriculumCatalog catalog, string code)
+        static List<ModuleDefinition> FindModules(CurriculumCatalog catalog, string code)
         {
+            var modules = new List<ModuleDefinition>();
             foreach (var cycle in catalog.cycles)
             {
                 foreach (var module in cycle.modules)
                 {
                     if (module.code == code)
                     {
-                        return module;
+                        modules.Add(module);
                     }
                 }
             }
-            return null;
+            return modules;
+        }
+
+        static ActivityDefinition CloneActivity(ActivityDefinition activity)
+        {
+            return new ActivityDefinition
+            {
+                id = activity.id,
+                title = activity.title,
+                type = activity.type,
+                deliverableType = activity.deliverableType,
+                moduleCode = activity.moduleCode,
+                learningOutcomeId = activity.learningOutcomeId,
+                studentTemplatePaths = new List<string>(activity.studentTemplatePaths),
+                teacherSolutionPaths = new List<string>(activity.teacherSolutionPaths),
+                statementPaths = new List<string>(activity.statementPaths),
+                resourcePaths = new List<string>(activity.resourcePaths),
+                targetPaths = new List<string>(activity.targetPaths)
+            };
         }
 
         static LearningOutcomeDefinition FindLearningOutcome(ModuleDefinition module, string id)

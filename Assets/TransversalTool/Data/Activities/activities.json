@@ -1,180 +1,864 @@
-{
-  "activities": [
-    {
-      "id": "PROG_RA1_ACT1",
-      "title": "Moviment bàsic del personatge",
-      "type": "CSharpScript",
-      "deliverableType": "CSharpScript",
-      "moduleCode": "0485",
-      "learningOutcomeId": "RA1",
-      "studentTemplatePaths": [
-        "Assets/TransversalTool/Templates/Student/Programming/TransversalPlayerMovementTemplate.cs"
-      ],
-      "teacherSolutionPaths": [
-        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalPlayerMovementSolution.cs"
-      ],
-      "statementPaths": [
-        "Assets/TransversalTool/Documentation/Statements/Programming_RA1.md"
-      ],
-      "resourcePaths": [],
-      "targetPaths": [
-        "Assets/TransversalExercises/Programming/TransversalPlayerMovement.cs"
-      ]
-    },
-    {
-      "id": "PROG_RA1_ACT2",
-      "title": "Variables bàsiques en moviment",
-      "type": "CSharpScript",
-      "deliverableType": "CSharpScript",
-      "moduleCode": "0485",
-      "learningOutcomeId": "RA1",
-      "studentTemplatePaths": [
-        "Assets/TransversalTool/Templates/Student/Programming/TransversalVariableBasicsTemplate.cs"
-      ],
-      "teacherSolutionPaths": [
-        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalVariableBasicsSolution.cs"
-      ],
-      "statementPaths": [
-        "Assets/TransversalTool/Documentation/Statements/Programming_RA1_Variables.md"
-      ],
-      "resourcePaths": [],
-      "targetPaths": [
-        "Assets/TransversalExercises/Programming/TransversalVariableBasics.cs"
-      ]
-    },
-    {
-      "id": "PROG_RA3_ACT1",
-      "title": "Spawner de monedes amb bucles",
-      "type": "CSharpScript",
-      "deliverableType": "CSharpScript",
-      "moduleCode": "0485",
-      "learningOutcomeId": "RA3",
-      "studentTemplatePaths": [
-        "Assets/TransversalTool/Templates/Student/Programming/TransversalCoinSpawnerTemplate.cs",
-        "Assets/TransversalTool/Templates/Student/Programming/TransversalCoinPickupGiven.cs"
-      ],
-      "teacherSolutionPaths": [
-        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalCoinSpawnerSolution.cs",
-        "Assets/TransversalTool/Templates/Student/Programming/TransversalCoinPickupGiven.cs"
-      ],
-      "statementPaths": [
-        "Assets/TransversalTool/Documentation/Statements/Programming_RA3_BuclesSpawner.md"
-      ],
-      "resourcePaths": [],
-      "targetPaths": [
-        "Assets/TransversalExercises/Programming/TransversalCoinSpawner.cs",
-        "Assets/TransversalExercises/Programming/TransversalCoinPickup.cs"
-      ]
-    },
-    {
-      "id": "BDD_RA2_ACT1",
-      "title": "Model relacional inicial",
-      "type": "SQL",
-      "deliverableType": "SQLite",
-      "moduleCode": "0484",
-      "learningOutcomeId": "RA2",
-      "studentTemplatePaths": [
-        "Assets/TransversalTool/Templates/Student/Databases/SchemaTemplate.sql"
-      ],
-      "teacherSolutionPaths": [
-        "Assets/TransversalTool/Templates/Teacher/Databases/SchemaSolution.sql"
-      ],
-      "statementPaths": [
-        "Assets/TransversalTool/Documentation/Statements/Databases_RA2.md"
-      ],
-      "resourcePaths": [],
-      "targetPaths": [
-        "Assets/TransversalExercises/Databases/schema.sql"
-      ]
-    },
-    {
-      "id": "LM_RA1_ACT1",
-      "title": "Fitxer JSON de configuració",
-      "type": "JSON",
-      "deliverableType": "JSON",
-      "moduleCode": "0373",
-      "learningOutcomeId": "RA1",
-      "studentTemplatePaths": [
-        "Assets/TransversalTool/Templates/Student/Markup/ConfigTemplate.json"
-      ],
-      "teacherSolutionPaths": [
-        "Assets/TransversalTool/Templates/Teacher/Markup/ConfigSolution.json"
-      ],
-      "statementPaths": [
-        "Assets/TransversalTool/Documentation/Statements/Markup_RA1.md"
-      ],
-      "resourcePaths": [],
-      "targetPaths": [
-        "Assets/TransversalExercises/Markup/config.json"
-      ]
-    },
-    {
-      "id": "LM_RA2_ACT1",
-      "title": "Estils USS (similar a CSS) per a HUD",
-      "type": "USS",
-      "deliverableType": "USS",
-      "moduleCode": "0373",
-      "learningOutcomeId": "RA2",
-      "studentTemplatePaths": [
-        "Assets/TransversalTool/Templates/Student/Markup/HudStyleTemplate.uss"
-      ],
-      "teacherSolutionPaths": [
-        "Assets/TransversalTool/Templates/Teacher/Markup/HudStyleSolution.uss"
-      ],
-      "statementPaths": [
-        "Assets/TransversalTool/Documentation/Statements/Markup_RA2_UssStyles.md"
-      ],
-      "resourcePaths": [],
-      "targetPaths": [
-        "Assets/TransversalExercises/Markup/hud_style.uss"
-      ]
-    },
-    {
-      "id": "LM_RA6_ACT1",
-      "title": "Serialització JSON de partida",
-      "type": "JSON",
-      "deliverableType": "JSON",
-      "moduleCode": "0373",
-      "learningOutcomeId": "RA6",
-      "studentTemplatePaths": [
-        "Assets/TransversalTool/Templates/Student/Markup/SaveGameTemplate.json"
-      ],
-      "teacherSolutionPaths": [
-        "Assets/TransversalTool/Templates/Teacher/Markup/SaveGameSolution.json"
-      ],
-      "statementPaths": [
-        "Assets/TransversalTool/Documentation/Statements/Markup_RA6_Serialitzacio.md"
-      ],
-      "resourcePaths": [],
-      "targetPaths": [
-        "Assets/TransversalExercises/Markup/savegame.json"
-      ]
-    },
-    {
-      "id": "AD_RA6_ACT1",
-      "title": "Guardar i recuperar savegame a base de dades",
-      "type": "CSharpScript",
-      "deliverableType": "RepositoryComponent",
-      "moduleCode": "0486",
-      "learningOutcomeId": "RA6",
-      "studentTemplatePaths": [
-        "Assets/TransversalTool/Templates/Student/AccessData/SaveGameRepositoryTemplate.cs",
-        "Assets/TransversalTool/Templates/Student/AccessData/SaveGameSnapshotTemplate.sql"
-      ],
-      "teacherSolutionPaths": [
-        "Assets/TransversalTool/Templates/Teacher/AccessData/SaveGameRepositorySolution.cs",
-        "Assets/TransversalTool/Templates/Teacher/AccessData/SaveGameSnapshotSolution.sql"
-      ],
-      "statementPaths": [
-        "Assets/TransversalTool/Documentation/Statements/AccessData_RA6_SavegameDB.md"
-      ],
-      "resourcePaths": [
-        "Assets/TransversalTool/Templates/Teacher/Markup/SaveGameSolution.json"
-      ],
-      "targetPaths": [
-        "Assets/TransversalExercises/AccessData/SaveGameRepository.cs",
-        "Assets/TransversalExercises/AccessData/savegame_snapshot.sql"
-      ]
-    }
-  ]
+﻿{
+    "activities":  [
+                       {
+                           "id":  "PROG_RA1_ACT1",
+                           "title":  "Moviment bàsic del personatge",
+                           "type":  "CSharpScript",
+                           "deliverableType":  "CSharpScript",
+                           "moduleCode":  "0485",
+                           "learningOutcomeId":  "RA1",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Programming/TransversalPlayerMovementTemplate.cs"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalPlayerMovementSolution.cs"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/Programming_RA1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Programming/TransversalPlayerMovement.cs"
+                                           ]
+                       },
+                       {
+                           "id":  "PROG_RA1_ACT2",
+                           "title":  "Variables bàsiques en moviment",
+                           "type":  "CSharpScript",
+                           "deliverableType":  "CSharpScript",
+                           "moduleCode":  "0485",
+                           "learningOutcomeId":  "RA1",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Programming/TransversalVariableBasicsTemplate.cs"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalVariableBasicsSolution.cs"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/Programming_RA1_Variables.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Programming/TransversalVariableBasics.cs"
+                                           ]
+                       },
+                       {
+                           "id":  "PROG_RA3_ACT1",
+                           "title":  "Spawner de monedes amb bucles",
+                           "type":  "CSharpScript",
+                           "deliverableType":  "CSharpScript",
+                           "moduleCode":  "0485",
+                           "learningOutcomeId":  "RA3",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Programming/TransversalCoinSpawnerTemplate.cs",
+                                                        "Assets/TransversalTool/Templates/Student/Programming/TransversalCoinPickupGiven.cs"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalCoinSpawnerSolution.cs",
+                                                        "Assets/TransversalTool/Templates/Student/Programming/TransversalCoinPickupGiven.cs"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/Programming_RA3_BuclesSpawner.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Programming/TransversalCoinSpawner.cs",
+                                               "Assets/TransversalExercises/Programming/TransversalCoinPickup.cs"
+                                           ]
+                       },
+                       {
+                           "id":  "BDD_RA2_ACT1",
+                           "title":  "Model relacional inicial",
+                           "type":  "SQL",
+                           "deliverableType":  "SQLite",
+                           "moduleCode":  "0484",
+                           "learningOutcomeId":  "RA2",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Databases/SchemaTemplate.sql"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Databases/SchemaSolution.sql"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/Databases_RA2.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Databases/schema.sql"
+                                           ]
+                       },
+                       {
+                           "id":  "LM_RA1_ACT1",
+                           "title":  "Fitxer JSON de configuració",
+                           "type":  "JSON",
+                           "deliverableType":  "JSON",
+                           "moduleCode":  "0373",
+                           "learningOutcomeId":  "RA1",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Markup/ConfigTemplate.json"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Markup/ConfigSolution.json"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/Markup_RA1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Markup/config.json"
+                                           ]
+                       },
+                       {
+                           "id":  "LM_RA2_ACT1",
+                           "title":  "Estils USS (similar a CSS) per a HUD",
+                           "type":  "USS",
+                           "deliverableType":  "USS",
+                           "moduleCode":  "0373",
+                           "learningOutcomeId":  "RA2",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Markup/HudStyleTemplate.uss"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Markup/HudStyleSolution.uss"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/Markup_RA2_UssStyles.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Markup/hud_style.uss"
+                                           ]
+                       },
+                       {
+                           "id":  "LM_RA6_ACT1",
+                           "title":  "Serialització JSON de partida",
+                           "type":  "JSON",
+                           "deliverableType":  "JSON",
+                           "moduleCode":  "0373",
+                           "learningOutcomeId":  "RA6",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Markup/SaveGameTemplate.json"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Markup/SaveGameSolution.json"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/Markup_RA6_Serialitzacio.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Markup/savegame.json"
+                                           ]
+                       },
+                       {
+                           "id":  "AD_RA6_ACT1",
+                           "title":  "Guardar i recuperar savegame a base de dades",
+                           "type":  "CSharpScript",
+                           "deliverableType":  "RepositoryComponent",
+                           "moduleCode":  "0486",
+                           "learningOutcomeId":  "RA6",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/AccessData/SaveGameRepositoryTemplate.cs",
+                                                        "Assets/TransversalTool/Templates/Student/AccessData/SaveGameSnapshotTemplate.sql"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/AccessData/SaveGameRepositorySolution.cs",
+                                                        "Assets/TransversalTool/Templates/Teacher/AccessData/SaveGameSnapshotSolution.sql"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AccessData_RA6_SavegameDB.md"
+                                              ],
+                           "resourcePaths":  [
+                                                 "Assets/TransversalTool/Templates/Teacher/Markup/SaveGameSolution.json"
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/AccessData/SaveGameRepository.cs",
+                                               "Assets/TransversalExercises/AccessData/savegame_snapshot.sql"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0485_RA1_ACT1",
+                           "title":  "Variables i estructura del moviment",
+                           "type":  "CSharpScript",
+                           "deliverableType":  "CSharpScript",
+                           "moduleCode":  "0485",
+                           "learningOutcomeId":  "RA1",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Programming/TransversalVariableBasicsTemplate.cs"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalVariableBasicsSolution.cs"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0485_RA1_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Programming/TransversalVariableBasics.cs"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0485_RA2_ACT1",
+                           "title":  "POO bàsica amb Player i Enemy",
+                           "type":  "CSharpScript",
+                           "deliverableType":  "CSharpScript",
+                           "moduleCode":  "0485",
+                           "learningOutcomeId":  "RA2",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Programming/TransversalPlayerEnemyBasicsTemplate.cs"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalPlayerEnemyBasicsSolution.cs"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0485_RA2_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Programming/TransversalPlayerEnemyBasics.cs"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0485_RA3_ACT1",
+                           "title":  "Spawner de monedes amb bucles",
+                           "type":  "CSharpScript",
+                           "deliverableType":  "CSharpScript",
+                           "moduleCode":  "0485",
+                           "learningOutcomeId":  "RA3",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Programming/TransversalCoinSpawnerTemplate.cs",
+                                                        "Assets/TransversalTool/Templates/Student/Programming/TransversalCoinPickupGiven.cs"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalCoinSpawnerSolution.cs",
+                                                        "Assets/TransversalTool/Templates/Student/Programming/TransversalCoinPickupGiven.cs"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0485_RA3_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Programming/TransversalCoinSpawner.cs",
+                                               "Assets/TransversalExercises/Programming/TransversalCoinPickup.cs"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0485_RA4_ACT1",
+                           "title":  "Sistema d\u0027inventari amb classes",
+                           "type":  "CSharpScript",
+                           "deliverableType":  "CSharpScript",
+                           "moduleCode":  "0485",
+                           "learningOutcomeId":  "RA4",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Programming/TransversalInventoryTemplate.cs"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalInventorySolution.cs"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0485_RA4_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Programming/TransversalInventory.cs"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0485_RA5_ACT1",
+                           "title":  "Entrada/sortida de fitxer de configuració",
+                           "type":  "CSharpScript",
+                           "deliverableType":  "CSharpScript",
+                           "moduleCode":  "0485",
+                           "learningOutcomeId":  "RA5",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Programming/TransversalConfigFileIOTemplate.cs"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalConfigFileIOSolution.cs"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0485_RA5_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Programming/TransversalConfigFileIO.cs"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0485_RA6_ACT1",
+                           "title":  "Gestió de col·leccions de partides",
+                           "type":  "CSharpScript",
+                           "deliverableType":  "CSharpScript",
+                           "moduleCode":  "0485",
+                           "learningOutcomeId":  "RA6",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Programming/TransversalSaveCollectionTemplate.cs"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalSaveCollectionSolution.cs"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0485_RA6_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Programming/TransversalSaveCollection.cs"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0485_RA7_ACT1",
+                           "title":  "Herència i polimorfisme d\u0027enemics",
+                           "type":  "CSharpScript",
+                           "deliverableType":  "CSharpScript",
+                           "moduleCode":  "0485",
+                           "learningOutcomeId":  "RA7",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Programming/TransversalEnemyInheritanceTemplate.cs"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalEnemyInheritanceSolution.cs"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0485_RA7_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Programming/TransversalEnemyInheritance.cs"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0485_RA8_ACT1",
+                           "title":  "Persistència orientada a objectes",
+                           "type":  "CSharpScript",
+                           "deliverableType":  "CSharpScript",
+                           "moduleCode":  "0485",
+                           "learningOutcomeId":  "RA8",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Programming/TransversalObjectPersistenceTemplate.cs"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalObjectPersistenceSolution.cs"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0485_RA8_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Programming/TransversalObjectPersistence.cs"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0485_RA9_ACT1",
+                           "title":  "Integració amb base de dades de resultats",
+                           "type":  "CSharpScript",
+                           "deliverableType":  "RepositoryComponent",
+                           "moduleCode":  "0485",
+                           "learningOutcomeId":  "RA9",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Programming/TransversalResultsDatabaseTemplate.cs"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Programming/TransversalResultsDatabaseSolution.cs"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0485_RA9_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Programming/TransversalResultsDatabase.cs"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0373_RA1_ACT1",
+                           "title":  "JSON de configuració del projecte",
+                           "type":  "JSON",
+                           "deliverableType":  "JSON",
+                           "moduleCode":  "0373",
+                           "learningOutcomeId":  "RA1",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Markup/ConfigTemplate.json"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Markup/ConfigSolution.json"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0373_RA1_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Markup/config.json"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0373_RA2_ACT1",
+                           "title":  "Estils USS per a HUD (semblant CSS)",
+                           "type":  "USS",
+                           "deliverableType":  "USS",
+                           "moduleCode":  "0373",
+                           "learningOutcomeId":  "RA2",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Markup/HudStyleTemplate.uss"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Markup/HudStyleSolution.uss"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0373_RA2_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Markup/hud_style.uss"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0373_RA3_ACT1",
+                           "title":  "Interacció de client amb document web de suport",
+                           "type":  "JavaScript",
+                           "deliverableType":  "JavaScript",
+                           "moduleCode":  "0373",
+                           "learningOutcomeId":  "RA3",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Markup/WebSupportInteractionsTemplate.js"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Markup/WebSupportInteractionsSolution.js"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0373_RA3_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Markup/web_support_interactions.js"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0373_RA4_ACT1",
+                           "title":  "Validació d\u0027esquemes de configuració",
+                           "type":  "JSON",
+                           "deliverableType":  "JSONSchema",
+                           "moduleCode":  "0373",
+                           "learningOutcomeId":  "RA4",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Markup/ConfigSchemaTemplate.json"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Markup/ConfigSchemaSolution.json"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0373_RA4_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Markup/config_schema.json"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0373_RA5_ACT1",
+                           "title":  "Conversió JSON ↔ XML de dades de joc",
+                           "type":  "XML",
+                           "deliverableType":  "XML",
+                           "moduleCode":  "0373",
+                           "learningOutcomeId":  "RA5",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Markup/GameDataTransformTemplate.xml"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Markup/GameDataTransformSolution.xml"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0373_RA5_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Markup/game_data_transform.xml"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0373_RA6_ACT1",
+                           "title":  "Consulta de dades serialitzades de partida",
+                           "type":  "JSON",
+                           "deliverableType":  "JSON",
+                           "moduleCode":  "0373",
+                           "learningOutcomeId":  "RA6",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Markup/SaveGameTemplate.json"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Markup/SaveGameSolution.json"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0373_RA6_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Markup/savegame.json"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0373_RA7_ACT1",
+                           "title":  "Integració/importació de dades a sistema de gestió",
+                           "type":  "CSV",
+                           "deliverableType":  "CSV",
+                           "moduleCode":  "0373",
+                           "learningOutcomeId":  "RA7",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Markup/DataImportTemplate.csv"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Markup/DataImportSolution.csv"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0373_RA7_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Markup/data_import.csv"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0484_RA1_ACT1",
+                           "title":  "Anàlisi de sistemes gestors per al videojoc",
+                           "type":  "Markdown",
+                           "deliverableType":  "Markdown",
+                           "moduleCode":  "0484",
+                           "learningOutcomeId":  "RA1",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Databases/SgbdAnalysisTemplate.md"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Databases/SgbdAnalysisSolution.md"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0484_RA1_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Databases/sgbd_analysis.md"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0484_RA2_ACT1",
+                           "title":  "Model relacional inicial del joc",
+                           "type":  "SQL",
+                           "deliverableType":  "SQLite",
+                           "moduleCode":  "0484",
+                           "learningOutcomeId":  "RA2",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Databases/SchemaTemplate.sql"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Databases/SchemaSolution.sql"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0484_RA2_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Databases/schema.sql"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0484_RA3_ACT1",
+                           "title":  "Consultes SQL de rànquing i progrés",
+                           "type":  "SQL",
+                           "deliverableType":  "SQLite",
+                           "moduleCode":  "0484",
+                           "learningOutcomeId":  "RA3",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Databases/RankingProgressQueriesTemplate.sql"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Databases/RankingProgressQueriesSolution.sql"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0484_RA3_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Databases/ranking_progress_queries.sql"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0484_RA4_ACT1",
+                           "title":  "Operacions CRUD amb transaccions",
+                           "type":  "SQL",
+                           "deliverableType":  "SQLite",
+                           "moduleCode":  "0484",
+                           "learningOutcomeId":  "RA4",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Databases/CrudTransactionsTemplate.sql"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Databases/CrudTransactionsSolution.sql"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0484_RA4_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Databases/crud_transactions.sql"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0484_RA5_ACT1",
+                           "title":  "Automatització amb procediments i triggers",
+                           "type":  "SQL",
+                           "deliverableType":  "SQLite",
+                           "moduleCode":  "0484",
+                           "learningOutcomeId":  "RA5",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Databases/ProceduresTriggersTemplate.sql"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Databases/ProceduresTriggersSolution.sql"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0484_RA5_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Databases/procedures_triggers.sql"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0484_RA6_ACT1",
+                           "title":  "Normalització del model E/R",
+                           "type":  "SQL",
+                           "deliverableType":  "SQLite",
+                           "moduleCode":  "0484",
+                           "learningOutcomeId":  "RA6",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Databases/NormalizationTemplate.sql"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Databases/NormalizationSolution.sql"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0484_RA6_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Databases/normalization.sql"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0484_RA7_ACT1",
+                           "title":  "Emmagatzematge no relacional d\u0027esdeveniments",
+                           "type":  "JSON",
+                           "deliverableType":  "JSON",
+                           "moduleCode":  "0484",
+                           "learningOutcomeId":  "RA7",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/Databases/EventStoreTemplate.json"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/Databases/EventStoreSolution.json"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0484_RA7_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/Databases/event_store.json"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0487_RA1_ACT1",
+                           "title":  "Fases i eines del projecte transversal",
+                           "type":  "Markdown",
+                           "deliverableType":  "Markdown",
+                           "moduleCode":  "0487",
+                           "learningOutcomeId":  "RA1",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/DevelopmentEnvironments/ProjectPhasesTemplate.md"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/DevelopmentEnvironments/ProjectPhasesSolution.md"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0487_RA1_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/DevelopmentEnvironments/project_phases.md"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0487_RA2_ACT1",
+                           "title":  "Avaluació de l\u0027IDE i configuració de depuració",
+                           "type":  "Markdown",
+                           "deliverableType":  "Markdown",
+                           "moduleCode":  "0487",
+                           "learningOutcomeId":  "RA2",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/DevelopmentEnvironments/IdeDebugTemplate.md"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/DevelopmentEnvironments/IdeDebugSolution.md"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0487_RA2_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/DevelopmentEnvironments/ide_debug.md"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0487_RA3_ACT1",
+                           "title":  "Disseny i execució de proves funcionals",
+                           "type":  "Markdown",
+                           "deliverableType":  "Markdown",
+                           "moduleCode":  "0487",
+                           "learningOutcomeId":  "RA3",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/DevelopmentEnvironments/FunctionalTestsTemplate.md"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/DevelopmentEnvironments/FunctionalTestsSolution.md"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0487_RA3_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/DevelopmentEnvironments/functional_tests.md"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0487_RA4_ACT1",
+                           "title":  "Optimització i perfilat de codi",
+                           "type":  "Markdown",
+                           "deliverableType":  "Markdown",
+                           "moduleCode":  "0487",
+                           "learningOutcomeId":  "RA4",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/DevelopmentEnvironments/OptimizationTemplate.md"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/DevelopmentEnvironments/OptimizationSolution.md"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0487_RA4_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/DevelopmentEnvironments/optimization.md"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0487_RA5_ACT1",
+                           "title":  "Diagrama de classes del nucli de la tool",
+                           "type":  "Markdown",
+                           "deliverableType":  "Markdown",
+                           "moduleCode":  "0487",
+                           "learningOutcomeId":  "RA5",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/DevelopmentEnvironments/ClassDiagramTemplate.md"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/DevelopmentEnvironments/ClassDiagramSolution.md"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0487_RA5_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/DevelopmentEnvironments/class_diagram.md"
+                                           ]
+                       },
+                       {
+                           "id":  "AEA_0487_RA6_ACT1",
+                           "title":  "Diagrama de comportament del generador de paquets",
+                           "type":  "Markdown",
+                           "deliverableType":  "Markdown",
+                           "moduleCode":  "0487",
+                           "learningOutcomeId":  "RA6",
+                           "studentTemplatePaths":  [
+                                                        "Assets/TransversalTool/Templates/Student/DevelopmentEnvironments/BehaviorDiagramTemplate.md"
+                                                    ],
+                           "teacherSolutionPaths":  [
+                                                        "Assets/TransversalTool/Templates/Teacher/DevelopmentEnvironments/BehaviorDiagramSolution.md"
+                                                    ],
+                           "statementPaths":  [
+                                                  "Assets/TransversalTool/Documentation/Statements/AEA_0487_RA6_ACT1.md"
+                                              ],
+                           "resourcePaths":  [
+
+                                             ],
+                           "targetPaths":  [
+                                               "Assets/TransversalExercises/DevelopmentEnvironments/behavior_diagram.md"
+                                           ]
+                       }
+                   ]
 }

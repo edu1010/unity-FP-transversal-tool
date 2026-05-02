@@ -1,0 +1,13 @@
+﻿{
+  "events": [
+    {
+      "eventType": "coin_collected",
+      "playerId": "p001",
+      "timestamp": "2026-05-02T10:00:00Z",
+      "payload": {
+        "value": 10,
+        "level": 2
+      }
+    }
+  ]
+}

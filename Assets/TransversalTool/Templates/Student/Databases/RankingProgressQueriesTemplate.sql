@@ -1,0 +1,2 @@
+﻿-- TODO: Consulta rànquing top 10 per puntuació.
+-- TODO: Consulta progrés mitjà per nivell.

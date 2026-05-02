@@ -1,0 +1,2 @@
+﻿-- TODO: Crea trigger d'auditoria sobre updates de score.
+-- TODO: Crea procediment (o script equivalent) de recalcul de ranking.

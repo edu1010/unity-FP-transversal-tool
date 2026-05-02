@@ -1,0 +1,12 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "playerName": { "type": "string", "minLength": 1 },
+    "difficulty": { "type": "string", "enum": ["easy", "normal", "hard"] },
+    "musicVolume": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "subtitles": { "type": "boolean" }
+  },
+  "required": ["playerName", "difficulty", "musicVolume"],
+  "additionalProperties": false
+}
