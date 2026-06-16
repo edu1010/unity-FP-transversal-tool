@@ -137,10 +137,9 @@ namespace TransversalTool
             var studentRoot = Path.Combine(outputRoot, "Alumnes");
             var unityProjectRoot = Path.Combine(studentRoot, "UnityProject");
             var docsRoot = Path.Combine(studentRoot, "Docs");
-            var exercisesRoot = Path.Combine(studentRoot, "Exercicis");
 
             CopyUnityProject(unityProjectRoot);
-            ApplyStudentSelection(config, cycle, unityProjectRoot, exercisesRoot);
+            ApplyStudentSelection(config, cycle, unityProjectRoot);
             RemoveToolFromProject(unityProjectRoot);
             WriteDocs(docsRoot, "README_Alumnes.md", config, cycle, false);
             WriteSummary(docsRoot, config, cycle, false);
@@ -182,8 +181,25 @@ namespace TransversalTool
             }
         }
 
-        static void ApplyStudentSelection(GenerationConfig config, CycleDefinition cycle, string unityProjectRoot, string exercisesRoot)
+        static void ApplyStudentSelection(GenerationConfig config, CycleDefinition cycle, string unityProjectRoot)
         {
+            // Everything the student receives lives inside the Unity project so it is visible in the
+            // editor: the activities they must complete go under Assets/Transversal/Exercicis (with
+            // their statement and resources next to the editable script), and the parts that are
+            // delivered already done go under Assets/Transversal/Material_Resolt, whose name makes
+            // clear that this material is provided complete.
+            var assetsRoot = Path.Combine(unityProjectRoot, "Assets", "Transversal");
+            var exercisesRoot = Path.Combine(assetsRoot, "Exercicis");
+            var solvedRoot = Path.Combine(assetsRoot, "Material_Resolt");
+
+            // The same exercise can appear twice in the catalog (a curriculum activity and its AEA
+            // annex twin share module, RA and source files). Emitting both would place the same class
+            // twice and break compilation, so activities are collapsed by their file signature. If
+            // the same exercise is worked in one place and not in another, the worked (template)
+            // version wins: a class cannot be present as an exercise and as solved material at once.
+            var planned = new Dictionary<string, PlannedActivity>();
+            var order = new List<string>();
+
             foreach (var module in cycle.modules)
             {
                 var moduleSelection = FindModuleSelection(config, module.code);
@@ -195,46 +211,103 @@ namespace TransversalTool
 
                     foreach (var activity in ra.activities)
                     {
-                        var activitySelected = raSelected && (selectedActivityIds == null || selectedActivityIds.Count == 0 || selectedActivityIds.Contains(activity.id));
-                        if (activitySelected)
+                        var signature = ActivitySignature(activity);
+                        var worked = raSelected && (selectedActivityIds == null || selectedActivityIds.Count == 0 || selectedActivityIds.Contains(activity.id));
+
+                        if (planned.TryGetValue(signature, out var existing))
                         {
-                            CopyActivityFiles(activity.studentTemplatePaths, activity.targetPaths, unityProjectRoot);
-                            CreateExercise(activity, module, ra, exercisesRoot);
+                            if (worked && !existing.worked)
+                            {
+                                planned[signature] = new PlannedActivity { activity = activity, module = module, ra = ra, worked = true };
+                            }
+                            continue;
                         }
-                        else
-                        {
-                            CopyActivityFiles(activity.teacherSolutionPaths, activity.targetPaths, unityProjectRoot);
-                        }
+
+                        planned[signature] = new PlannedActivity { activity = activity, module = module, ra = ra, worked = worked };
+                        order.Add(signature);
                     }
+                }
+            }
+
+            foreach (var signature in order)
+            {
+                var plan = planned[signature];
+                var basePath = Path.Combine(
+                    plan.worked ? exercisesRoot : solvedRoot,
+                    Sanitize(plan.module.code + "_" + plan.module.name),
+                    Sanitize(plan.ra.id),
+                    Sanitize(plan.activity.id));
+
+                if (plan.worked)
+                {
+                    CopyAssetsInto(plan.activity.studentTemplatePaths, basePath);
+                    CopyAssetsInto(plan.activity.statementPaths, Path.Combine(basePath, "Enunciat"));
+                    CopyAssetsInto(plan.activity.resourcePaths, Path.Combine(basePath, "Recursos"));
+                }
+                else
+                {
+                    CopyAssetsInto(plan.activity.teacherSolutionPaths, basePath);
                 }
             }
         }
 
-        static void CreateExercise(ActivityDefinition activity, ModuleDefinition module, LearningOutcomeDefinition ra, string exercisesRoot)
+        // Identifies an activity by the neutralized names of its code/template/solution files, so
+        // twin activities that produce the same classes share a signature and are emitted once.
+        // Activities without such files fall back to their id so they are always kept (e.g. those
+        // that only carry a statement).
+        static string ActivitySignature(ActivityDefinition activity)
         {
-            var moduleFolder = Sanitize(module.code + "_" + module.name);
-            var raFolder = Sanitize(ra.id);
-            var basePath = Path.Combine(exercisesRoot, moduleFolder, raFolder);
-
-            var statementPath = Path.Combine(basePath, "Enunciat");
-            var resourcesPath = Path.Combine(basePath, "Recursos");
-            var templatePath = Path.Combine(basePath, "Plantilla");
-            var deliverablePath = Path.Combine(basePath, "Entrega");
-
-            Directory.CreateDirectory(statementPath);
-            Directory.CreateDirectory(resourcesPath);
-            Directory.CreateDirectory(templatePath);
-            Directory.CreateDirectory(deliverablePath);
-
-            CopyFiles(activity.statementPaths, statementPath);
-            CopyFiles(activity.resourcePaths, resourcesPath);
-            CopyFiles(activity.studentTemplatePaths, templatePath);
-
-            var deliverableFile = Path.Combine(deliverablePath, "ENTREGA.txt");
-            if (!File.Exists(deliverableFile))
+            var names = new List<string>();
+            if (activity.studentTemplatePaths != null)
             {
-                File.WriteAllText(deliverableFile, "Deliverable type: " + activity.deliverableType);
+                foreach (var path in activity.studentTemplatePaths)
+                {
+                    names.Add(ToolingSuffix.Replace(Path.GetFileName(path), "$1"));
+                }
             }
+            if (activity.teacherSolutionPaths != null)
+            {
+                foreach (var path in activity.teacherSolutionPaths)
+                {
+                    names.Add(ToolingSuffix.Replace(Path.GetFileName(path), "$1"));
+                }
+            }
+
+            if (names.Count == 0)
+            {
+                return "id:" + activity.id;
+            }
+
+            names.Sort(StringComparer.OrdinalIgnoreCase);
+            return string.Join("|", names.ToArray());
+        }
+
+        static void CopyAssetsInto(List<string> sourcePaths, string destinationFolder)
+        {
+            if (sourcePaths == null)
+            {
+                return;
+            }
+
+            var projectRoot = Directory.GetParent(Application.dataPath).FullName;
+            foreach (var path in sourcePaths)
+            {
+                var source = ResolvePath(projectRoot, path);
+                if (!File.Exists(source))
+                {
+                    continue;
+                }
+                var fileName = ToolingSuffix.Replace(Path.GetFileName(source), "$1");
+                CopyAsset(source, Path.Combine(destinationFolder, fileName));
+            }
+        }
+
+        class PlannedActivity
+        {
+            public ActivityDefinition activity;
+            public ModuleDefinition module;
+            public LearningOutcomeDefinition ra;
+            public bool worked;
         }
 
         static void CopyActivityFiles(List<string> sourcePaths, List<string> targetPaths, string unityProjectRoot)
@@ -276,23 +349,6 @@ namespace TransversalTool
             else
             {
                 File.Copy(source, target, true);
-            }
-        }
-
-        static void CopyFiles(List<string> sourcePaths, string destinationFolder)
-        {
-            if (sourcePaths == null)
-            {
-                return;
-            }
-
-            var projectRoot = Directory.GetParent(Application.dataPath).FullName;
-            foreach (var path in sourcePaths)
-            {
-                var source = ResolvePath(projectRoot, path);
-                var destination = Path.Combine(destinationFolder, Path.GetFileName(source));
-                Directory.CreateDirectory(destinationFolder);
-                File.Copy(source, destination, true);
             }
         }
 
