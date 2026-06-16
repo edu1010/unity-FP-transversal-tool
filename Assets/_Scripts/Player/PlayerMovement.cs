@@ -24,6 +24,12 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         wallJump = GetComponent<WallJump>();
         _detector = GetComponent<CollisionDetection>();
+
+        if (_rigidbody == null || wallJump == null || _detector == null)
+        {
+            Debug.LogError($"[PlayerMovement] '{name}' requires Rigidbody2D, WallJump and CollisionDetection on the same object. Disabling.", this);
+            enabled = false;
+        }
     }
 
     // Update is called once per frame

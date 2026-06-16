@@ -536,6 +536,7 @@ MonoBehaviour:
   cam: {fileID: 963243571}
   subject: {fileID: 2000228683}
   moveY: 1
+  verticalParallaxScale: 0.35
 --- !u!1 &436109201
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +704,11 @@ PrefabInstance:
       propertyPath: Speed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7767603945355662072, guid: 1e08c6535317ea34d95a451d169a851c,
+        type: 3}
+      propertyPath: MaxSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7767603945355662075, guid: 1e08c6535317ea34d95a451d169a851c,
         type: 3}
       propertyPath: LeftCheckPoint
@@ -846,6 +852,7 @@ MonoBehaviour:
   cam: {fileID: 963243571}
   subject: {fileID: 2000228683}
   moveY: 1
+  verticalParallaxScale: 0.35
 --- !u!212 &570161960
 SpriteRenderer:
   serializedVersion: 2
@@ -1027,6 +1034,7 @@ MonoBehaviour:
   cam: {fileID: 963243571}
   subject: {fileID: 2000228683}
   moveY: 1
+  verticalParallaxScale: 0.35
 --- !u!1 &963243569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,7 +1093,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0
+  near clip plane: 0.3
   far clip plane: 50
   field of view: 60
   orthographic: 1
@@ -1247,6 +1255,7 @@ MonoBehaviour:
   cam: {fileID: 963243571}
   subject: {fileID: 2000228683}
   moveY: 1
+  verticalParallaxScale: 0.35
 --- !u!1 &1296938041 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2057947398430986942, guid: ae3adf54aabeea64291492b4f30209cd,
@@ -27230,6 +27239,7 @@ MonoBehaviour:
   cam: {fileID: 963243571}
   subject: {fileID: 2000228683}
   moveY: 1
+  verticalParallaxScale: 0.35
 --- !u!1001 &7876257612403957967
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,16 +8,10 @@ public class Jumper : MonoBehaviour
 {
     Rigidbody2D rigidbody;
     CollisionDetection _detector;
-    [SerializeField]
-    float jumpSpeed = 5;
     //Y
     public float JumpHeight = 3;
     public float TimeToPeak = 0.5f;
-    //X
-    public float PeakDistance = 2;
-    public float MaxSpeedHorizontal = 5;
 
-    public bool X = true;//Si es true las funciones se hacen en funcion de la horizontal sino de la vertical
     public float PressTimeForMaxJump = 0.15f;
     public int _currentJumps;
     public int NumberOfJumps = 1;
@@ -47,16 +41,30 @@ public class Jumper : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         _detector = GetComponent<CollisionDetection>();
         wallJump = GetComponent<WallJump>();
+
+        if (rigidbody == null || _detector == null || wallJump == null)
+        {
+            Debug.LogError($"[Jumper] '{name}' requires Rigidbody2D, CollisionDetection and WallJump on the same object. Disabling.", this);
+            enabled = false;
+            return;
+        }
+
         SetGravity();
     }
 
     private void OnEnable()
     {
-        _detector.OnLanding += OnLanded;
+        if (_detector != null)
+        {
+            _detector.OnLanding += OnLanded;
+        }
     }
     private void OnDisable()
     {
-        _detector.OnLanding -= OnLanded;
+        if (_detector != null)
+        {
+            _detector.OnLanding -= OnLanded;
+        }
     }
     // Update is called once per frame
     void FixedUpdate()
