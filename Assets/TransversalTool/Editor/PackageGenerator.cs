@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
@@ -126,6 +127,7 @@ namespace TransversalTool
 
             CopyUnityProject(unityProjectRoot);
             ApplyTeacherSolutions(cycle, unityProjectRoot);
+            RemoveToolFromProject(unityProjectRoot);
             WriteDocs(docsRoot, "README_Professor.md", config, cycle, true);
             WriteSummary(docsRoot, config, cycle, true);
         }
@@ -138,14 +140,29 @@ namespace TransversalTool
             var exercisesRoot = Path.Combine(studentRoot, "Exercicis");
 
             CopyUnityProject(unityProjectRoot);
-            var teacherTemplates = Path.Combine(unityProjectRoot, "Assets", "TransversalTool", "Templates", "Teacher");
-            if (Directory.Exists(teacherTemplates))
-            {
-                Directory.Delete(teacherTemplates, true);
-            }
             ApplyStudentSelection(config, cycle, unityProjectRoot, exercisesRoot);
+            RemoveToolFromProject(unityProjectRoot);
             WriteDocs(docsRoot, "README_Alumnes.md", config, cycle, false);
             WriteSummary(docsRoot, config, cycle, false);
+        }
+
+        // The generated Unity project must not contain the tool itself: the Templates folder
+        // holds compilable .cs files whose classes are also copied into TransversalExercises by
+        // ApplyTeacherSolutions/ApplyStudentSelection, which would cause duplicate-definition
+        // (CS0101) errors. The tool is only needed in the authoring project, so strip it out.
+        static void RemoveToolFromProject(string unityProjectRoot)
+        {
+            var toolPath = Path.Combine(unityProjectRoot, "Assets", "TransversalTool");
+            if (Directory.Exists(toolPath))
+            {
+                Directory.Delete(toolPath, true);
+            }
+
+            var toolMeta = toolPath + ".meta";
+            if (File.Exists(toolMeta))
+            {
+                File.Delete(toolMeta);
+            }
         }
 
         static void CopyUnityProject(string destinationRoot)
@@ -236,7 +253,28 @@ namespace TransversalTool
                 {
                     continue;
                 }
-                Directory.CreateDirectory(Path.GetDirectoryName(target));
+                CopyAsset(source, target);
+            }
+        }
+
+        // Tool-internal class names carry the suffixes "Solution"/"Template"/"Given" so the teacher
+        // and student versions can coexist (and compile) inside the authoring project without
+        // colliding. The generated packages, however, must use neutral names: the script file name
+        // has to match its class for MonoBehaviour to load, and the teacher solution and the student
+        // template must be drop-in interchangeable for the same slot of the functional base project.
+        // For .cs files we therefore strip those suffixes from every identifier while copying.
+        static readonly Regex ToolingSuffix = new Regex(@"([A-Za-z0-9_]+?)(Solution|Template|Given)\b");
+
+        static void CopyAsset(string source, string target)
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(target));
+            if (Path.GetExtension(source).Equals(".cs", StringComparison.OrdinalIgnoreCase))
+            {
+                var content = ToolingSuffix.Replace(File.ReadAllText(source), "$1");
+                File.WriteAllText(target, content);
+            }
+            else
+            {
                 File.Copy(source, target, true);
             }
         }
