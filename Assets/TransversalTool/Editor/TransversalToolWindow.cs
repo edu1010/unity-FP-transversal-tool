@@ -48,9 +48,9 @@ namespace TransversalTool
                 _catalog = CatalogLoader.LoadCatalog();
             }
 
-            EditorGUILayout.LabelField("Configuració", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("ConfiguraciÃ³", EditorStyles.boldLabel);
             DrawCycleSelector();
-            _config.configName = EditorGUILayout.TextField("Nom configuració", _config.configName);
+            _config.configName = EditorGUILayout.TextField("Nom configuraciÃ³", _config.configName);
 
             using (new EditorGUILayout.HorizontalScope())
             {
@@ -69,7 +69,7 @@ namespace TransversalTool
             _config.includeStudentPackage = EditorGUILayout.ToggleLeft("Incloure paquet alumnat", _config.includeStudentPackage);
 
             EditorGUILayout.Space();
-            EditorGUILayout.LabelField("Mòduls i RA", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("MÃ²duls i RA", EditorStyles.boldLabel);
 
             _scroll = EditorGUILayout.BeginScrollView(_scroll);
             DrawModules();
@@ -120,7 +120,7 @@ namespace TransversalTool
 
                 using (new EditorGUILayout.HorizontalScope())
                 {
-                    _moduleFoldouts[module.code] = EditorGUILayout.Foldout(_moduleFoldouts[module.code], module.code + " · " + module.name, true);
+                    _moduleFoldouts[module.code] = EditorGUILayout.Foldout(_moduleFoldouts[module.code], module.code + " - " + module.name, true);
                     moduleSelection.enabled = EditorGUILayout.ToggleLeft("Participa", moduleSelection.enabled, GUILayout.Width(90));
                 }
 
@@ -138,7 +138,7 @@ namespace TransversalTool
 
                         using (new EditorGUILayout.HorizontalScope())
                         {
-                            _raFoldouts[raKey] = EditorGUILayout.Foldout(_raFoldouts[raKey], ra.id + " · " + ra.title, true);
+                            _raFoldouts[raKey] = EditorGUILayout.Foldout(_raFoldouts[raKey], ra.id + " - " + ra.title, true);
                             raSelection.enabled = EditorGUILayout.ToggleLeft("Treballar aquest RA", raSelection.enabled, GUILayout.Width(160));
                         }
 
@@ -158,10 +158,25 @@ namespace TransversalTool
                                     if (newSelected)
                                     {
                                         raSelection.selectedActivityIds.Add(activity.id);
+                                        // Marking an activity implies its RA is worked and its module
+                                        // participates, so the selection stays consistent.
+                                        raSelection.enabled = true;
+                                        moduleSelection.enabled = true;
                                     }
                                     else
                                     {
                                         raSelection.selectedActivityIds.Remove(activity.id);
+                                        // Unchecking the last activity of an RA turns the RA off, and
+                                        // if the module is left without any active RA it is turned off
+                                        // too, so an empty selection is never read as "work them all".
+                                        if (raSelection.selectedActivityIds.Count == 0)
+                                        {
+                                            raSelection.enabled = false;
+                                            if (!AnyLearningOutcomeEnabled(moduleSelection))
+                                            {
+                                                moduleSelection.enabled = false;
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -308,6 +323,23 @@ namespace TransversalTool
             };
             _config.selectedModules.Add(selection);
             return selection;
+        }
+
+        static bool AnyLearningOutcomeEnabled(ModuleSelection moduleSelection)
+        {
+            if (moduleSelection.learningOutcomes == null)
+            {
+                return false;
+            }
+
+            foreach (var ra in moduleSelection.learningOutcomes)
+            {
+                if (ra.enabled)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         LearningOutcomeSelection GetOrCreateLearningOutcomeSelection(ModuleSelection moduleSelection, string raId)
